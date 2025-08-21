@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/lib/i18n";
+import { AuthProvider, ConsentBanner } from "@/contexts/auth-context";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -40,9 +41,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <I18nProvider>
-            <SiteHeader />
-            {children}
-            <SiteFooter />
+            <AuthProvider>
+              <SiteHeader />
+              {children}
+              <SiteFooter />
+              <ConsentBanner />
+            </AuthProvider>
           </I18nProvider>
         </ThemeProvider>
       </body>
