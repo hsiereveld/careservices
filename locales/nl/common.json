@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "services": "Diensten",
+    "howItWorks": "Hoe Het Werkt",
+    "forProfessionals": "Voor Professionals",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "#1 Platform voor Immigranten in Spanje",
+    "title": {
+      "connecting": "Verbinden van",
+      "immigrants": "Immigranten",
+      "withProfessionals": "met Lokale Professionals"
+    },
+    "description": "Care & Service is jouw vertrouwde platform om kwaliteitsdiensten in jouw taal te vinden. Van zorg en welzijn tot technische diensten - wij verbinden jouw behoefte met de perfecte professional.",
+    "buttons": {
+      "findServices": "Vind Diensten",
+      "becomeProfessional": "Word Professional"
+    },
+    "features": {
+      "freeVerification": "Gratis Verificatie",
+      "support247": "24/7 Ondersteuning",
+      "securePayments": "Veilige Betalingen"
+    }
+  },
+  "services": {
+    "title": "Onze Diensten",
+    "description": "Vind de perfecte professional voor elke behoefte. Al onze dienstverleners zijn geverifieerd en spreken jouw taal.",
+    "categories": {
+      "healthcare": {
+        "title": "Zorg & Gezondheid",
+        "description": "Medische zorg, thuiszorg, fysiotherapie en andere gezondheidsservices"
+      },
+      "technical": {
+        "title": "Technische Diensten", 
+        "description": "Reparaties, installaties, onderhoud en technische ondersteuning"
+      },
+      "administrative": {
+        "title": "Administratie & Juridisch",
+        "description": "Belastingaangiften, juridisch advies, administratieve ondersteuning"
+      },
+      "childcare": {
+        "title": "Kinderopvang & Oppas",
+        "description": "Babysitting, kinderopvang, begeleiding van kinderen"
+      },
+      "transport": {
+        "title": "Transport",
+        "description": "Taxi's, verhuizingen, bezorgdiensten"
+      },
+      "sports": {
+        "title": "Sport & Recreatie", 
+        "description": "Personal trainers, sportlessen, recreatieve activiteiten"
+      },
+      "social": {
+        "title": "Sociale Activiteiten",
+        "description": "Begeleiding, evenementen, sociale ondersteuning"
+      },
+      "domestic": {
+        "title": "Huishoudelijke Diensten",
+        "description": "Schoonmaak, tuinonderhoud, huishoudelijke taken"
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Hoe Het Werkt",
+    "description": "Drie eenvoudige stappen om verbinding te maken met de professional die je nodig hebt",
+    "steps": {
+      "search": {
+        "title": "1. Zoek je Dienst",
+        "description": "Verken onze categorieën of gebruik onze AI chat om precies te vinden wat je nodig hebt"
+      },
+      "connect": {
+        "title": "2. Verbind met Professionals",
+        "description": "Bekijk geverifieerde profielen, lees reviews en kies de professional die het best bij jouw behoeften past"
+      },
+      "book": {
+        "title": "3. Boek en Geniet",
+        "description": "Plan je afspraak, betaal veilig en ontvang de kwaliteitsdienst die je verdient"
+      }
+    }
+  },
+  "cta": {
+    "title": "Klaar om te Beginnen?",
+    "description": "Sluit je aan bij duizenden mensen die al vertrouwen op Care & Service voor hun dagelijkse behoeften",
+    "buttons": {
+      "exploreServices": "Verken Diensten",
+      "chatWithAI": "Chat met AI Assistent"
+    }
+  },
+  "trust": {
+    "title": "Vertrouwd Platform",
+    "description": "Duizenden gebruikers vertrouwen al op Care & Service",
+    "stats": {
+      "servicesCompleted": "Voltooide Diensten",
+      "professionalVerified": "Geverifieerde Professionals",
+      "averageRating": "Gemiddelde Beoordeling",
+      "responseTime": "Responstijd"
+    },
+    "badges": {
+      "identityVerification": "Identiteitsverificatie",
+      "securePayments": "Veilige Betalingen",
+      "support247": "24/7 Ondersteuning"
+    }
+  },
+  "auth": {
+    "signIn": "Inloggen",
+    "signOut": "Uitloggen",
+    "welcome": "Welkom",
+    "loading": "Laden...",
+    "signUp": "Registreren",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "confirmPassword": "Bevestig wachtwoord",
+    "name": "Naam",
+    "emailPlaceholder": "je@email.com",
+    "passwordPlaceholder": "Minimaal 8 karakters",
+    "namePlaceholder": "Je volledige naam",
+    "createAccount": "Account aanmaken",
+    "haveAccount": "Heb je al een account?",
+    "noAccount": "Geen account?",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "resetPassword": "Wachtwoord resetten",
+    "backToSignIn": "Terug naar inloggen",
+    "orContinueWith": "Of ga verder met",
+    "rememberMe": "Onthouden",
+    "passwordTooShort": "Wachtwoord moet minimaal 8 karakters zijn",
+    "passwordsDontMatch": "Wachtwoorden komen niet overeen",
+    "invalidEmail": "Ongeldig e-mailadres",
+    "nameRequired": "Naam is verplicht",
+    "chooseMethod": "Kies je voorkeursmethod voor inloggen"
+  },
+  "theme": {
+    "toggle": "Thema wijzigen",
+    "light": "Licht",
+    "dark": "Donker",
+    "system": "Systeem"
+  },
+  "dashboard": {
+    "protected": "Beveiligde Pagina",
+    "signInRequired": "Je moet inloggen om het dashboard te openen",
+    "backHome": "Terug naar home",
+    "welcome": "Welkom",
+    "subtitle": "Hier is je Care & Service dashboard",
+    "stats": {
+      "activeServices": "Actieve Diensten",
+      "upcomingBookings": "Komende Boekingen",
+      "messages": "Berichten",
+      "rating": "Beoordeling",
+      "noServicesYet": "Nog geen diensten",
+      "noBookingsYet": "Nog geen boekingen",
+      "noMessagesYet": "Nog geen berichten",
+      "noRatingYet": "Nog geen beoordelingen"
+    },
+    "quickActions": {
+      "findServices": "Vind Diensten",
+      "findServicesDesc": "Zoek betrouwbare professionals in jouw buurt",
+      "browseServices": "Bekijk Diensten",
+      "becomePro": "Word Professional",
+      "becomeProDesc": "Begin met het aanbieden van jouw diensten",
+      "startApplication": "Start Aanmelding"
+    },
+    "recentActivity": {
+      "title": "Recente Activiteit",
+      "description": "Je laatste acties op het platform",
+      "noActivity": "Nog geen activiteit",
+      "getStarted": "Begin met het zoeken van diensten om je dashboard te vullen"
+    }
+  },
+  "footer": {
+    "description": "Verbinden van immigranten en expats met vertrouwde lokale professionals in Spanje voor alle soorten diensten.",
+    "services": {
+      "title": "Diensten",
+      "healthcare": "Zorg & Gezondheid",
+      "technical": "Technische Diensten",
+      "childcare": "Kinderopvang",
+      "transport": "Transport"
+    },
+    "company": {
+      "title": "Bedrijf",
+      "about": "Over Ons",
+      "careers": "Carrières",
+      "press": "Pers",
+      "contact": "Contact"
+    },
+    "support": {
+      "title": "Ondersteuning",
+      "help": "Help Center",
+      "safety": "Veiligheid",
+      "privacy": "Privacy",
+      "terms": "Voorwaarden"
+    },
+    "copyright": "© 2025 Care & Service. Alle rechten voorbehouden."
+  }
+}

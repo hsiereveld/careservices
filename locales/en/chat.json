@@ -1,0 +1,12 @@
+{
+  "title": "AI Chat",
+  "welcome": "Hello! 👋 I'm your Care & Service assistant. How can I help you?",
+  "startConversation": "Start a conversation with AI",
+  "you": "You",
+  "ai": "AI",
+  "loading": "Loading...",
+  "placeholder": "Type your message...",
+  "send": "Send",
+  "error": "Sorry, an error occurred. Please try again.",
+  "assistant": "AI Assistant"
+}

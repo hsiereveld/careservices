@@ -1,0 +1,139 @@
+/* Care & Service Platform Brand Colors */
+/* Primary brand color: #2d8484 (teal/cyan) */
+
+:root {
+  --brand-primary: #2d8484;
+  --brand-primary-light: #3a9999;
+  --brand-primary-dark: #1f5e5e;
+  --brand-primary-50: #f0f9f9;
+  --brand-primary-100: #ccebeb;
+  --brand-primary-200: #99d6d6;
+  --brand-primary-300: #66c2c2;
+  --brand-primary-400: #4daeae;
+  --brand-primary-500: #2d8484;
+  --brand-primary-600: #267070;
+  --brand-primary-700: #1f5e5e;
+  --brand-primary-800: #184b4b;
+  --brand-primary-900: #113838;
+}
+
+/* Dark mode variants */
+.dark {
+  --brand-primary-400: #4daeae;
+  --brand-primary-300: #66c2c2;
+}
+
+/* Brand color utility classes */
+.bg-brand {
+  background-color: var(--brand-primary);
+}
+
+.bg-brand-light {
+  background-color: var(--brand-primary-light);
+}
+
+.bg-brand-dark {
+  background-color: var(--brand-primary-dark);
+}
+
+.bg-brand-50 {
+  background-color: var(--brand-primary-50);
+}
+
+.bg-brand-100 {
+  background-color: var(--brand-primary-100);
+}
+
+.bg-brand-600 {
+  background-color: var(--brand-primary-600);
+}
+
+.bg-brand-700 {
+  background-color: var(--brand-primary-700);
+}
+
+.bg-brand-900 {
+  background-color: var(--brand-primary-900);
+}
+
+.text-brand {
+  color: var(--brand-primary);
+}
+
+.text-brand-600 {
+  color: var(--brand-primary-600);
+}
+
+.text-brand-700 {
+  color: var(--brand-primary-700);
+}
+
+.text-brand-800 {
+  color: var(--brand-primary-800);
+}
+
+.text-brand-100 {
+  color: var(--brand-primary-100);
+}
+
+.border-brand {
+  border-color: var(--brand-primary);
+}
+
+.border-brand-400 {
+  border-color: var(--brand-primary-400);
+}
+
+.border-brand-600 {
+  border-color: var(--brand-primary-600);
+}
+
+.border-brand-700 {
+  border-color: var(--brand-primary-700);
+}
+
+/* Hover states */
+.hover\:bg-brand:hover {
+  background-color: var(--brand-primary);
+}
+
+.hover\:bg-brand-50:hover {
+  background-color: var(--brand-primary-50);
+}
+
+.hover\:bg-brand-700:hover {
+  background-color: var(--brand-primary-700);
+}
+
+.hover\:bg-brand-950:hover {
+  background-color: var(--brand-primary-900);
+}
+
+.hover\:border-brand-700:hover {
+  border-color: var(--brand-primary-700);
+}
+
+.hover\:text-brand-700:hover {
+  color: var(--brand-primary-700);
+}
+
+/* Dark mode specific classes */
+.dark .dark\:bg-brand-900 {
+  background-color: var(--brand-primary-900);
+}
+
+.dark .dark\:border-brand-400 {
+  border-color: var(--brand-primary-400);
+}
+
+.dark .dark\:text-brand-400 {
+  color: var(--brand-primary-400);
+}
+
+.dark .dark\:text-brand-100 {
+  color: var(--brand-primary-100);
+}
+
+.dark .dark\:hover\:bg-brand-950:hover {
+  background-color: var(--brand-primary-900);
+}

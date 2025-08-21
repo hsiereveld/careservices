@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "services": "Services",
+    "howItWorks": "How It Works",
+    "forProfessionals": "For Professionals",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "#1 Platform for Immigrants in Spain",
+    "title": {
+      "connecting": "Connecting",
+      "immigrants": "Immigrants",
+      "withProfessionals": "with Local Professionals"
+    },
+    "description": "Care & Service is your trusted platform to find quality services in your language. From care and wellness to technical services - we connect your need with the perfect professional.",
+    "buttons": {
+      "findServices": "Find Services",
+      "becomeProfessional": "Become Professional"
+    },
+    "features": {
+      "freeVerification": "Free Verification",
+      "support247": "24/7 Support",
+      "securePayments": "Secure Payments"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "Find the perfect professional for any need. All our service providers are verified and speak your language.",
+    "categories": {
+      "healthcare": {
+        "title": "Care & Health",
+        "description": "Medical care, home care, physiotherapy and other health services"
+      },
+      "technical": {
+        "title": "Technical Services",
+        "description": "Repairs, installations, maintenance and technical support"
+      },
+      "administrative": {
+        "title": "Administrative & Legal",
+        "description": "Tax returns, legal advice, administrative support"
+      },
+      "childcare": {
+        "title": "Childcare",
+        "description": "Babysitting, nurseries, child care"
+      },
+      "transport": {
+        "title": "Transport",
+        "description": "Taxis, moving, delivery services"
+      },
+      "sports": {
+        "title": "Sports & Recreation",
+        "description": "Personal trainers, sports classes, recreational activities"
+      },
+      "social": {
+        "title": "Social Activities",
+        "description": "Companionship, events, social support"
+      },
+      "domestic": {
+        "title": "Domestic Services",
+        "description": "Cleaning, gardening, household tasks"
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "description": "Three simple steps to connect with the professional you need",
+    "steps": {
+      "search": {
+        "title": "1. Search Your Service",
+        "description": "Explore our categories or use our AI chat to find exactly what you need"
+      },
+      "connect": {
+        "title": "2. Connect with Professionals",
+        "description": "View verified profiles, read reviews and choose the professional that best fits your needs"
+      },
+      "book": {
+        "title": "3. Book and Enjoy",
+        "description": "Schedule your appointment, pay securely and receive the quality service you deserve"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "description": "Join thousands of people who already trust Care & Service for their daily needs",
+    "buttons": {
+      "exploreServices": "Explore Services",
+      "chatWithAI": "Chat with AI Assistant"
+    }
+  },
+  "trust": {
+    "title": "Trusted Platform",
+    "description": "Thousands of users already trust Care & Service",
+    "stats": {
+      "servicesCompleted": "Services Completed",
+      "professionalVerified": "Verified Professionals",
+      "averageRating": "Average Rating",
+      "responseTime": "Response Time"
+    },
+    "badges": {
+      "identityVerification": "Identity Verification",
+      "securePayments": "Secure Payments",
+      "support247": "24/7 Support"
+    }
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signOut": "Sign out", 
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "signUp": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "name": "Name",
+    "emailPlaceholder": "you@email.com",
+    "passwordPlaceholder": "At least 8 characters",
+    "namePlaceholder": "Your full name",
+    "createAccount": "Create account",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "backToSignIn": "Back to sign in",
+    "orContinueWith": "Or continue with",
+    "rememberMe": "Remember me",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordsDontMatch": "Passwords don't match",
+    "invalidEmail": "Invalid email address",
+    "nameRequired": "Name is required",
+    "chooseMethod": "Choose your preferred sign in method"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "footer": {
+    "description": "Connecting immigrants and expats with trusted local professionals in Spain for all types of services.",
+    "services": {
+      "title": "Services",
+      "healthcare": "Care & Health",
+      "technical": "Technical Services",
+      "childcare": "Childcare",
+      "transport": "Transport"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "careers": "Careers",
+      "press": "Press",
+      "contact": "Contact"
+    },
+    "support": {
+      "title": "Support",
+      "help": "Help Center",
+      "safety": "Safety",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "copyright": "© 2025 Care & Service. All rights reserved."
+  }
+}

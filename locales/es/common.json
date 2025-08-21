@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "howItWorks": "Cómo Funciona",
+    "forProfessionals": "Para Profesionales",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Plataforma #1 para Inmigrantes en España",
+    "title": {
+      "connecting": "Conectamos",
+      "immigrants": "Inmigrantes",
+      "withProfessionals": "con Profesionales Locales"
+    },
+    "description": "Care & Service es tu plataforma de confianza para encontrar servicios de calidad en tu idioma. Desde cuidado y bienestar hasta servicios técnicos, conectamos tu necesidad con el profesional perfecto.",
+    "buttons": {
+      "findServices": "Encontrar Servicios",
+      "becomeProfessional": "Ser Profesional"
+    },
+    "features": {
+      "freeVerification": "Verificación Gratuita",
+      "support247": "Soporte 24/7",
+      "securePayments": "Pagos Seguros"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "description": "Encuentra el profesional perfecto para cualquier necesidad. Todos nuestros proveedores están verificados y hablan tu idioma.",
+    "categories": {
+      "healthcare": {
+        "title": "Cuidado & Salud",
+        "description": "Atención médica, cuidado domiciliario, fisioterapia y otros servicios de salud"
+      },
+      "technical": {
+        "title": "Servicios Técnicos",
+        "description": "Reparaciones, instalaciones, mantenimiento y soporte técnico"
+      },
+      "administrative": {
+        "title": "Administrativo & Legal",
+        "description": "Declaraciones de impuestos, asesoría legal, apoyo administrativo"
+      },
+      "childcare": {
+        "title": "Cuidado Infantil",
+        "description": "Niñeras, guarderías, cuidado de niños"
+      },
+      "transport": {
+        "title": "Transporte",
+        "description": "Taxis, mudanzas, servicios de entrega"
+      },
+      "sports": {
+        "title": "Deporte & Recreación",
+        "description": "Entrenadores personales, clases deportivas, actividades recreativas"
+      },
+      "social": {
+        "title": "Actividades Sociales",
+        "description": "Compañía, eventos, apoyo social"
+      },
+      "domestic": {
+        "title": "Servicios Domésticos",
+        "description": "Limpieza, jardinería, tareas del hogar"
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Cómo Funciona",
+    "description": "Tres simples pasos para conectar con el profesional que necesitas",
+    "steps": {
+      "search": {
+        "title": "1. Busca tu Servicio",
+        "description": "Explora nuestras categorías o usa nuestro chat AI para encontrar exactamente lo que necesitas"
+      },
+      "connect": {
+        "title": "2. Conecta con Profesionales",
+        "description": "Ve perfiles verificados, lee reseñas y elige el profesional que mejor se adapte a tus necesidades"
+      },
+      "book": {
+        "title": "3. Reserva y Disfruta",
+        "description": "Programa tu cita, paga de forma segura y recibe el servicio de calidad que mereces"
+      }
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Empezar?",
+    "description": "Únete a miles de personas que ya confían en Care & Service para sus necesidades diarias",
+    "buttons": {
+      "exploreServices": "Explorar Servicios",
+      "chatWithAI": "Hablar con AI Assistant"
+    }
+  },
+  "trust": {
+    "title": "Plataforma de Confianza",
+    "description": "Miles de usuarios ya confían en Care & Service",
+    "stats": {
+      "servicesCompleted": "Servicios Completados",
+      "professionalVerified": "Profesionales Verificados",
+      "averageRating": "Calificación Promedio",
+      "responseTime": "Tiempo de Respuesta"
+    },
+    "badges": {
+      "identityVerification": "Verificación de Identidad",
+      "securePayments": "Pagos Seguros",
+      "support247": "Soporte 24/7"
+    }
+  },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión",
+    "welcome": "Bienvenido",
+    "loading": "Cargando...",
+    "signUp": "Registrarse",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "name": "Nombre",
+    "emailPlaceholder": "tu@email.com",
+    "passwordPlaceholder": "Mínimo 8 caracteres",
+    "namePlaceholder": "Tu nombre completo",
+    "createAccount": "Crear cuenta",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "noAccount": "¿No tienes cuenta?",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "resetPassword": "Restablecer contraseña",
+    "backToSignIn": "Volver a iniciar sesión",
+    "orContinueWith": "O continúa con",
+    "rememberMe": "Recordarme",
+    "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+    "passwordsDontMatch": "Las contraseñas no coinciden",
+    "invalidEmail": "Dirección de correo inválida",
+    "nameRequired": "El nombre es obligatorio",
+    "chooseMethod": "Elige tu método preferido de inicio de sesión"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "footer": {
+    "description": "Conectamos inmigrantes y expatriados con profesionales locales de confianza en España para todo tipo de servicios.",
+    "services": {
+      "title": "Servicios",
+      "healthcare": "Cuidado & Salud",
+      "technical": "Servicios Técnicos",
+      "childcare": "Cuidado Infantil",
+      "transport": "Transporte"
+    },
+    "company": {
+      "title": "Empresa",
+      "about": "Acerca de",
+      "careers": "Carreras",
+      "press": "Prensa",
+      "contact": "Contacto"
+    },
+    "support": {
+      "title": "Soporte",
+      "help": "Centro de Ayuda",
+      "safety": "Seguridad",
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    },
+    "copyright": "© 2025 Care & Service. Todos los derechos reservados."
+  }
+}

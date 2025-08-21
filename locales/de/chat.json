@@ -1,0 +1,12 @@
+{
+  "title": "AI Chat",
+  "welcome": "Hallo! 👋 Ich bin Ihr Care & Service Assistent. Wie kann ich Ihnen helfen?",
+  "startConversation": "Beginnen Sie ein Gespräch mit AI",
+  "you": "Sie",
+  "ai": "AI",
+  "loading": "Lädt...",
+  "placeholder": "Schreiben Sie Ihre Nachricht...",
+  "send": "Senden",
+  "error": "Entschuldigung, ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+  "assistant": "KI-Assistent"
+}
