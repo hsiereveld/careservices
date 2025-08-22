@@ -116,7 +116,8 @@ export async function GET(
 
 // PUT /api/services/[id] - Update service
 export const PUT = withAuth(
-  async (request: NextRequest, user, { params }: { params: Promise<{ id: string }> }) => {
+  async (request: NextRequest, user, ...args: unknown[]) => {
+    const { params } = args[0] as { params: Promise<{ id: string }> };
     try {
       const { id: serviceId } = await params;
 
@@ -265,7 +266,8 @@ export const PUT = withAuth(
 
 // DELETE /api/services/[id] - Delete service (soft delete)
 export const DELETE = withAuth(
-  async (request: NextRequest, user, { params }: { params: Promise<{ id: string }> }) => {
+  async (request: NextRequest, user, ...args: unknown[]) => {
+    const { params } = args[0] as { params: Promise<{ id: string }> };
     try {
       const { id: serviceId } = await params;
 

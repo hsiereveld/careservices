@@ -44,7 +44,7 @@ export async function GET(
       activeServices: 0,
     };
 
-    let services = [];
+    let services: unknown[] = [];
     if (includeServices) {
       // Get services in this category
       services = await db
@@ -92,7 +92,8 @@ export async function GET(
 
 // PUT /api/service-categories/[id] - Update category
 export const PUT = withAuth(
-  async (request: NextRequest, user, { params }: { params: Promise<{ id: string }> }) => {
+  async (request: NextRequest, user, ...args: unknown[]) => {
+    const { params } = args[0] as { params: Promise<{ id: string }> };
     try {
       const { id: categoryId } = await params;
 
@@ -174,7 +175,8 @@ export const PUT = withAuth(
 
 // DELETE /api/service-categories/[id] - Delete category
 export const DELETE = withAuth(
-  async (request: NextRequest, user, { params }: { params: Promise<{ id: string }> }) => {
+  async (request: NextRequest, user, ...args: unknown[]) => {
+    const { params } = args[0] as { params: Promise<{ id: string }> };
     try {
       const { id: categoryId } = await params;
 

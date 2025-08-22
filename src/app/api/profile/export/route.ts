@@ -171,7 +171,7 @@ function sanitizeExportData(data: Record<string, unknown>) {
     if (Array.isArray(obj)) {
       return obj.map(removeInternalIds)
     } else if (obj && typeof obj === 'object') {
-      const cleaned = { ...obj }
+      const cleaned = { ...obj } as Record<string, unknown>
       // Keep user-relevant IDs but remove internal references
       delete cleaned.ipAddress
       delete cleaned.userAgent
