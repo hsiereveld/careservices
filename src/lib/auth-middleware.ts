@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import { auth } from "./auth"
 import { UserRole, hasPermission } from "./auth"
+import { validateSession } from "./auth-session"
 
 export interface AuthUser {
   id: string
@@ -27,28 +27,27 @@ export async function authMiddleware(
   requiredRoles?: UserRole[]
 ): Promise<{ success: boolean; response?: NextResponse; user?: AuthUser }> {
   try {
-    // Get session from Better-Auth
-    const session = await auth.api.getSession({
-      headers: request.headers,
-    })
-
-    // No session found
+    // Validate session using Better-Auth
+    const session = await validateSession(request.headers)
+    
+    // No valid session found
     if (!session?.user) {
       return {
         success: false,
-        response: NextResponse.redirect(new URL('/auth/sign-in', request.url))
+        response: NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
       }
     }
-
-    const user = {
-      ...session.user,
-      role: 'client' as UserRole, // Default role for now
-      preferredLanguage: 'es',
-      phone: '',
-      isActive: true,
-      isVerified: false,
-    } as AuthUser
-
+    
+    // Create AuthUser from session
+    const user: AuthUser = {
+      id: session.user.id,
+      email: session.user.email,
+      name: session.user.name || '',
+      role: (session.user.role || 'client') as UserRole,
+      isActive: session.user.isActive ?? true,
+      isVerified: session.user.isVerified ?? false,
+    }
+    
     // Check if user is active
     if (!user.isActive) {
       return {
@@ -59,19 +58,24 @@ export async function authMiddleware(
         )
       }
     }
-
+    
     // Check role permissions if required
-    if (requiredRoles && !hasPermission(user.role, requiredRoles)) {
-      return {
-        success: false,
-        response: NextResponse.json(
-          { error: 'Insufficient permissions' },
-          { status: 403 }
-        )
+    if (requiredRoles && requiredRoles.length > 0) {
+      if (!hasPermission(user.role, requiredRoles)) {
+        return {
+          success: false,
+          response: NextResponse.json(
+            { error: 'Insufficient permissions' },
+            { status: 403 }
+          )
+        }
       }
     }
-
-    return { success: true, user }
+    
+    return {
+      success: true,
+      user
+    }
   } catch (error) {
     console.error('Auth middleware error:', error)
     return {

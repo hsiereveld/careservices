@@ -3,6 +3,11 @@ import { UserRole } from "./auth"
 
 export const authClient = createAuthClient({
   baseURL: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  fetchOptions: {
+    onError: (ctx) => {
+      console.error("Auth error:", ctx.error);
+    },
+  },
 })
 
 export const {

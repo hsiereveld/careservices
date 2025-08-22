@@ -1,7 +1,6 @@
 'use client'
 
 import { RequireRole } from '@/contexts/auth-context'
-import { DashboardLayout } from '@/components/dashboard/dashboard-layout'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -68,8 +67,7 @@ export default function ClientServicesPage() {
 
   return (
     <RequireRole roles={['client']}>
-      <DashboardLayout>
-        <div className="space-y-6">
+      <div className="space-y-6">
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -240,7 +238,6 @@ export default function ClientServicesPage() {
             </Card>
           </div>
         </div>
-      </DashboardLayout>
     </RequireRole>
   )
 }

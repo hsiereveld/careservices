@@ -3,6 +3,17 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Safe area padding for browser UI */
+html {
+  padding-top: env(safe-area-inset-top);
+  scroll-padding-top: 20px;
+}
+
+body {
+  padding-top: 8px;
+  margin: 0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

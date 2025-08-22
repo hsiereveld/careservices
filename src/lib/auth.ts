@@ -1,8 +1,7 @@
 import { betterAuth } from "better-auth"
 import { drizzleAdapter } from "better-auth/adapters/drizzle"
 import { db } from "./db"
-import { user, account, session, verification } from "./schema"
-import { nanoid } from "nanoid"
+import * as schema from "./schema"
 
 export type UserRole = 'client' | 'pro' | 'franchise' | 'admin'
 
@@ -10,12 +9,17 @@ export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: {
-      user,
-      account,
-      session,
-      verification,
+      user: schema.user,
+      account: schema.account,
+      session: schema.session,
+      verification: schema.verification,
     }
   }),
+  
+  secret: process.env.BETTER_AUTH_SECRET,
+  
+  // Base URL configuration
+  baseURL: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   
   // Enhanced session configuration
   session: {
@@ -38,17 +42,28 @@ export const auth = betterAuth({
   // Social providers
   socialProviders: {
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    },
+  },
+
+  // User configuration
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        defaultValue: "client",
+        required: false,
+      },
     },
   },
 
   // Advanced configuration
   advanced: {
-    generateId: () => nanoid(),
     crossSubDomainCookies: {
       enabled: false
-    }
+    },
+    generateSessionId: true,
   },
 
   // Trusted origins for CORS

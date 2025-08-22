@@ -88,7 +88,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (session.data?.user && !profile && !isLoadingProfile) {
       refreshProfile()
     }
-  }, [session.data?.user, profile, isLoadingProfile])
+  }, [session.data?.user])
 
   // Load user consents from localStorage (in production, this should come from server)
   useEffect(() => {
@@ -215,17 +215,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const grantConsent = async (type: ConsentType) => {
-    if (!session.data?.user) return
-
     const updatedConsents = consents.filter(c => c.type !== type)
-    updatedConsents.push({
+    const newConsent = {
       type,
       granted: true,
       grantedAt: new Date(),
-    })
+    }
+    updatedConsents.push(newConsent)
 
     setConsents(updatedConsents)
-    localStorage.setItem(`consents_${session.data.user.id}`, JSON.stringify(updatedConsents))
+    
+    // Save consent for both authenticated and anonymous users
+    if (session?.data?.user) {
+      localStorage.setItem(`consents_${session.data.user.id}`, JSON.stringify(updatedConsents))
+    } else {
+      // Save anonymous consent
+      const anonymousConsents = localStorage.getItem('anonymous_consents')
+      let allAnonymousConsents = []
+      
+      if (anonymousConsents) {
+        try {
+          allAnonymousConsents = JSON.parse(anonymousConsents)
+          allAnonymousConsents = allAnonymousConsents.filter((c: any) => c.type !== type)
+        } catch (error) {
+          console.error('Failed to parse anonymous consents:', error)
+        }
+      }
+      
+      allAnonymousConsents.push(newConsent)
+      localStorage.setItem('anonymous_consents', JSON.stringify(allAnonymousConsents))
+    }
+    
+    // Only make API call if user is authenticated
+    if (!session?.data?.user) return
 
     // In production, also send to server
     try {
@@ -345,14 +367,31 @@ export function RequireRole({
 
 // GDPR Consent Banner Component
 export function ConsentBanner() {
-  const { hasConsent, grantConsent, revokeConsent } = useAuth()
+  const { hasConsent, grantConsent, revokeConsent, user } = useAuth()
   const [showBanner, setShowBanner] = useState(false)
 
   useEffect(() => {
-    // Show banner if essential consents haven't been granted
-    const hasEssentialConsent = hasConsent('data_processing')
-    setShowBanner(!hasEssentialConsent)
-  }, [hasConsent])
+    // Check for anonymous consent in localStorage first
+    const anonymousConsents = localStorage.getItem('anonymous_consents')
+    let hasAnonymousConsent = false
+    
+    if (anonymousConsents) {
+      try {
+        const consents = JSON.parse(anonymousConsents)
+        hasAnonymousConsent = consents.some((c: any) => 
+          c.type === 'data_processing' && c.granted && !c.revokedAt
+        )
+      } catch (error) {
+        console.error('Failed to parse anonymous consents:', error)
+      }
+    }
+    
+    // Check authenticated user consent if logged in
+    const hasUserConsent = user ? hasConsent('data_processing') : false
+    
+    // Show banner if neither anonymous nor user consent exists
+    setShowBanner(!hasAnonymousConsent && !hasUserConsent)
+  }, [hasConsent, user])
 
   if (!showBanner) return null
 
@@ -368,9 +407,9 @@ export function ConsentBanner() {
         </div>
         <div className="flex gap-2">
           <button 
-            onClick={() => {
-              grantConsent('data_processing')
-              grantConsent('functional_cookies')
+            onClick={async () => {
+              await grantConsent('data_processing')
+              await grantConsent('functional_cookies')
               setShowBanner(false)
             }}
             className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm"
@@ -378,11 +417,11 @@ export function ConsentBanner() {
             Accept Essential
           </button>
           <button 
-            onClick={() => {
-              grantConsent('data_processing')
-              grantConsent('functional_cookies')
-              grantConsent('analytics_cookies')
-              grantConsent('marketing_communications')
+            onClick={async () => {
+              await grantConsent('data_processing')
+              await grantConsent('functional_cookies')
+              await grantConsent('analytics_cookies')
+              await grantConsent('marketing_communications')
               setShowBanner(false)
             }}
             className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-sm"

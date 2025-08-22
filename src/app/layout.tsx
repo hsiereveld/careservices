@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "../styles/brand-colors.css";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { ConditionalSiteHeader } from "@/components/conditional-site-header";
+import { ConditionalSiteFooter } from "@/components/conditional-site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,9 +42,13 @@ export default function RootLayout({
         >
           <I18nProvider>
             <AuthProvider>
-              <SiteHeader />
-              {children}
-              <SiteFooter />
+              <div className="flex flex-col min-h-screen">
+                <ConditionalSiteHeader />
+                <main className="flex-1">
+                  {children}
+                </main>
+                <ConditionalSiteFooter />
+              </div>
               <ConsentBanner />
             </AuthProvider>
           </I18nProvider>
