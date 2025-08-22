@@ -297,11 +297,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const contextValue: AuthContextType = {
-    user: session.user ? {
-      ...session.user,
-      preferredLanguage: 'es',
-      phone: '',
-    } : null,
+    user: session.user,
     profile,
     isLoading: session.isPending || isLoadingProfile,
     isAuthenticated: !!session.data?.user,

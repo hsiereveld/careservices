@@ -25,21 +25,24 @@ export const {
 export function useAuthSession() {
   const session = useSession()
   
+  // Get the actual role from session data
+  const userRole = (session.data?.user as any)?.role || 'client'
+  
   return {
     ...session,
     user: session.data?.user ? {
       ...session.data.user,
-      role: 'client' as UserRole, // Default role for now
-      preferredLanguage: 'es',
-      phone: '',
-      isActive: true,
-      isVerified: false,
+      role: userRole as UserRole, // Use actual role from session
+      preferredLanguage: (session.data.user as any)?.preferred_language || 'es',
+      phone: (session.data.user as any)?.phone || '',
+      isActive: (session.data.user as any)?.is_active ?? true,
+      isVerified: (session.data.user as any)?.is_verified ?? false,
     } : null,
-    isClient: true, // Default for now
-    isPro: false,
-    isFranchise: false,
-    isAdmin: false,
-    hasRole: (roles: UserRole[]) => roles.includes('client'),
+    isClient: userRole === 'client',
+    isPro: userRole === 'pro',
+    isFranchise: userRole === 'franchise',
+    isAdmin: userRole === 'admin',
+    hasRole: (roles: UserRole[]) => roles.includes(userRole as UserRole),
   }
 }
 
