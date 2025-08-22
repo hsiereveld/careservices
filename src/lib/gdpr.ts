@@ -55,7 +55,7 @@ export interface AuditLogEntry {
   timestamp: Date
   userAgent?: string
   ipAddress?: string
-  metadata?: Record<string, any>
+  metadata?: Record<string, unknown>
 }
 
 /**
@@ -285,7 +285,7 @@ export function createAuditLogEntry(
   userId: string,
   action: string,
   dataType: string,
-  metadata?: Record<string, any>
+  metadata?: Record<string, unknown>
 ): AuditLogEntry {
   return {
     id: `audit_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,

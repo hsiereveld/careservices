@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { signUp, signIn } from '@/lib/auth-client'
 
 export default function TestAuthAPI() {
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<{ success: boolean; data?: unknown; error?: string } | null>(null)
   const [loading, setLoading] = useState(false)
 
   const testRegister = async () => {
@@ -16,8 +16,8 @@ export default function TestAuthAPI() {
         name: 'Test User',
       })
       setResult({ success: true, data: res })
-    } catch (error: any) {
-      setResult({ success: false, error: error.message })
+    } catch (error) {
+      setResult({ success: false, error: error instanceof Error ? error.message : 'Operation failed' })
     } finally {
       setLoading(false)
     }
@@ -31,8 +31,8 @@ export default function TestAuthAPI() {
         password: 'Test123456!',
       })
       setResult({ success: true, data: res })
-    } catch (error: any) {
-      setResult({ success: false, error: error.message })
+    } catch (error) {
+      setResult({ success: false, error: error instanceof Error ? error.message : 'Operation failed' })
     } finally {
       setLoading(false)
     }

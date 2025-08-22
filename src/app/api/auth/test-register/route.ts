@@ -29,23 +29,23 @@ export async function POST(request: NextRequest) {
         user: result.user,
         session: result.token,
       })
-    } catch (signupError: any) {
+    } catch (signupError: unknown) {
       return NextResponse.json(
-        { error: signupError.message || "Registration failed" },
+        { error: signupError instanceof Error ? signupError.message : "Registration failed" },
         { status: 400 }
       )
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Registration error:", error)
     return NextResponse.json(
-      { error: error.message || "Registration failed" },
+      { error: error instanceof Error ? error.message : "Registration failed" },
       { status: 500 }
     )
   }
 }
 
 // Test endpoint to verify auth is working
-export async function GET(request: NextRequest) {
+export async function GET() {
   return NextResponse.json({
     message: "Use POST to register a test user",
     example: {

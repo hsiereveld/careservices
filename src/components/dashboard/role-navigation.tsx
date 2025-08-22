@@ -30,7 +30,7 @@ import { UserRole } from '@/lib/auth'
 interface NavigationItem {
   name: string
   href: string
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   description?: string
   badge?: string | number
   disabled?: boolean

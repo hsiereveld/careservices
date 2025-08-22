@@ -105,10 +105,10 @@ export const roleProtection = {
  * Higher-order function to create protected API handlers
  */
 export function withAuth(
-  handler: (request: NextRequest, user: AuthUser, ...args: any[]) => Promise<Response>,
+  handler: (request: NextRequest, user: AuthUser, ...args: unknown[]) => Promise<Response>,
   requiredRoles?: UserRole[]
 ) {
-  return async (request: NextRequest, ...args: any[]) => {
+  return async (request: NextRequest, ...args: unknown[]) => {
     const authResult = await authMiddleware(request, requiredRoles)
     
     if (!authResult.success || !authResult.user) {

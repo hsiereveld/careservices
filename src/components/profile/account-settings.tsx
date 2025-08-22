@@ -42,7 +42,7 @@ export function AccountSettings() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [deleteConfirmText, setDeleteConfirmText] = useState('')
 
-  const handleConsentChange = async (type: any, granted: boolean) => {
+  const handleConsentChange = async (type: string, granted: boolean) => {
     if (granted) {
       await grantConsent(type)
     } else {

@@ -140,7 +140,7 @@ export const GET = withAuth(async (request: NextRequest, authUser) => {
 /**
  * Sanitize export data by removing sensitive information
  */
-function sanitizeExportData(data: any) {
+function sanitizeExportData(data: Record<string, unknown>) {
   const sanitized = JSON.parse(JSON.stringify(data))
 
   // Remove password hashes and authentication tokens
@@ -150,7 +150,7 @@ function sanitizeExportData(data: any) {
 
   // Remove sensitive payment information
   if (sanitized.financialData) {
-    sanitized.financialData = sanitized.financialData.map((transaction: any) => ({
+    sanitized.financialData = sanitized.financialData.map((transaction: Record<string, unknown>) => ({
       ...transaction,
       paymentIntentId: transaction.paymentIntentId ? '[REDACTED]' : null,
       // Keep amount and currency for transparency, but remove payment details
@@ -159,7 +159,7 @@ function sanitizeExportData(data: any) {
 
   // Remove access tokens from calendar integrations
   if (sanitized.professionalSettings?.calendarIntegrations) {
-    sanitized.professionalSettings.calendarIntegrations = sanitized.professionalSettings.calendarIntegrations.map((integration: any) => ({
+    sanitized.professionalSettings.calendarIntegrations = sanitized.professionalSettings.calendarIntegrations.map((integration: Record<string, unknown>) => ({
       ...integration,
       accessToken: '[REDACTED]',
       refreshToken: '[REDACTED]',
@@ -167,7 +167,7 @@ function sanitizeExportData(data: any) {
   }
 
   // Remove internal system IDs that are not relevant to the user
-  const removeInternalIds = (obj: any): any => {
+  const removeInternalIds = (obj: unknown): unknown => {
     if (Array.isArray(obj)) {
       return obj.map(removeInternalIds)
     } else if (obj && typeof obj === 'object') {

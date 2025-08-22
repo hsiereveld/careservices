@@ -15,14 +15,14 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 /**
  * Get nested object property by path
  */
-function getNestedProperty(obj: any, path: string): any { // eslint-disable-line @typescript-eslint/no-explicit-any
+function getNestedProperty(obj: Record<string, unknown>, path: string): unknown {
   return path.split('.').reduce((current, key) => current?.[key], obj);
 }
 
 /**
  * Translation function
  */
-function translate(translations: any, key: string, fallback?: string): string {
+function translate(translations: Record<string, unknown>, key: string, fallback?: string): string {
   const value = getNestedProperty(translations, key);
   
   if (typeof value === 'string') {
@@ -40,7 +40,7 @@ function translate(translations: any, key: string, fallback?: string): string {
 /**
  * Load translations for a specific locale
  */
-function loadTranslations(locale: string): any {
+function loadTranslations(locale: string): Record<string, unknown> {
   // Check if locale is supported
   if (locale in translations) {
     return translations[locale as SupportedLocale];

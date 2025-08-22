@@ -236,7 +236,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (anonymousConsents) {
         try {
           allAnonymousConsents = JSON.parse(anonymousConsents)
-          allAnonymousConsents = allAnonymousConsents.filter((c: any) => c.type !== type)
+          allAnonymousConsents = allAnonymousConsents.filter((c: { type: string }) => c.type !== type)
         } catch (error) {
           console.error('Failed to parse anonymous consents:', error)
         }

@@ -24,12 +24,12 @@ export const localeFlags: Record<Locale, string> = {
 export const defaultLocale: Locale = 'nl';
 
 // Translation cache
-const translationCache: Record<string, any> = {};
+const translationCache: Record<string, unknown> = {};
 
 /**
  * Load translations for a specific locale (server-side)
  */
-export async function loadTranslationsServer(locale: Locale): Promise<any> {
+export async function loadTranslationsServer(locale: Locale): Promise<Record<string, unknown>> {
   const cacheKey = locale;
   
   if (translationCache[cacheKey]) {
@@ -52,7 +52,7 @@ export async function loadTranslationsServer(locale: Locale): Promise<any> {
 /**
  * Get nested object property by path
  */
-function getNestedProperty(obj: any, path: string): any {
+function getNestedProperty(obj: Record<string, unknown>, path: string): unknown {
   return path.split('.').reduce((current, key) => current?.[key], obj);
 }
 
@@ -60,7 +60,7 @@ function getNestedProperty(obj: any, path: string): any {
  * Translation function (server-side)
  */
 export function translateServer(
-  translations: any,
+  translations: Record<string, unknown>,
   key: string,
   fallback?: string
 ): string {
