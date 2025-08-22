@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react'
 import { useAuth } from '@/contexts/auth-context'
+import { useTranslations } from '@/lib/i18n-context'
 import { cn } from '@/lib/utils'
 import { DashboardSidebar } from './dashboard-sidebar'
 import { DashboardHeader } from './dashboard-header'
@@ -16,6 +17,7 @@ interface DashboardLayoutProps {
 
 export function DashboardLayout({ children, className }: DashboardLayoutProps) {
   const { user, isLoading } = useAuth()
+  const { t } = useTranslations()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   if (isLoading) {
@@ -30,8 +32,8 @@ export function DashboardLayout({ children, className }: DashboardLayoutProps) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-2">Access Denied</h1>
-          <p className="text-muted-foreground">Please sign in to access the dashboard.</p>
+          <h1 className="text-2xl font-bold mb-2">{t('dashboard.access_denied', 'Access Denied')}</h1>
+          <p className="text-muted-foreground">{t('dashboard.please_sign_in', 'Please sign in to access the dashboard.')}</p>
         </div>
       </div>
     )
@@ -56,7 +58,7 @@ export function DashboardLayout({ children, className }: DashboardLayoutProps) {
         "transition duration-300 ease-in-out lg:transition-none"
       )}>
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 lg:hidden">
-          <span className="text-lg font-semibold text-gray-900">Dashboard</span>
+          <span className="text-lg font-semibold text-gray-900">{t('dashboard.title', 'Dashboard')}</span>
           <Button
             variant="ghost"
             size="sm"

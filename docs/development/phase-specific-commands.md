@@ -257,34 +257,63 @@ Dit document bevat alle specifieke commands die per ontwikkelingsfase uitgevoerd
 
 **Completion Date:** 22-8-2025
 
-#### **Command 8b: Service Management UI** 🆕 TO DO
+#### **Command 8b: Complete Dashboard Implementation (REVISED)** 🔥 CRITICAL - IN PROGRESS
 ```bash
-@ui-developer @localization-multitenant
+@ui-developer @analytics-crm @localization-multitenant
 ```
-**Taak:** Creëer complete UI voor service management
-- [ ] **Professional Dashboard UI**
-  - [ ] Service CRUD interface voor professionals
-  - [ ] Service planning & availability kalender
-  - [ ] Prijzen & radius beheer interface
-  - [ ] Service statistieken dashboard
-  - [ ] Multi-language content management voor services
-- [ ] **Admin Management Console**
-  - [ ] Service categorieën beheer
-  - [ ] Service goedkeuring workflow
-  - [ ] Kwaliteitscontrole dashboard
-  - [ ] Service moderatie tools
-  - [ ] Multi-language categorie vertalingen
-- [ ] **Client Service Browser**
-  - [ ] Service zoek & filter interface
-  - [ ] Service detail pagina's
-  - [ ] Service vergelijking tool
-  - [ ] Favorieten & saved searches
-  - [ ] Locatie-based service discovery
-- [ ] **Multi-language Support**
-  - [ ] Service beschrijvingen in 4 talen (NL/EN/DE/ES)
-  - [ ] Dynamische content vertaling
-  - [ ] SEO optimalisatie per taal
-  - [ ] Locale-specific prijsweergave
+**Taak:** Maak ALLE dashboards volledig functioneel met echte data
+
+**⚠️ PROBLEEM:** 85% van dashboard functionaliteit ontbreekt ondanks "completed" status
+- Alle data is hard-coded zonder database connectie
+- Voortgang monitoring onmogelijk zonder werkende dashboards
+- Testing en stakeholder feedback geblokkeerd
+
+**🎯 NIEUWE PRIORITEIT: Dashboard-First Implementation**
+
+**Week 1: Core Dashboard Functionality (22-8 t/m 29-8-2025)**
+
+**Dag 1-2: Client Dashboard**
+- [ ] Replace hard-coded data met echte database queries
+- [ ] Implementeer booking list met real data
+- [ ] Working service browser met filters
+- [ ] Messaging system basis
+- [ ] Activity feed met echte events
+- [ ] Multi-language support activeren
+
+**Dag 3-4: Professional Dashboard**  
+- [ ] Complete service CRUD UI (gebruik bestaande API)
+- [ ] Real earnings tracking met transaction data
+- [ ] Availability/calendar management interface
+- [ ] Client lijst met echte database data
+- [ ] Booking management dashboard
+- [ ] Statistics met echte metrics
+
+**Dag 5-6: Admin Dashboard**
+- [ ] User management interface (CRUD)
+- [ ] Service categorieën beheer UI
+- [ ] Platform statistics met echte data
+- [ ] Service moderation tools
+- [ ] System configuration interface
+- [ ] Financial overview dashboard
+
+**Dag 7: Integration & Testing**
+- [ ] End-to-end user flow testing
+- [ ] Multi-language verificatie (NL/EN/DE/ES)
+- [ ] Performance testing
+- [ ] Bug fixes en refinement
+
+**Success Criteria:**
+- ✅ Geen hard-coded data meer
+- ✅ Alle CRUD operations hebben werkende UI
+- ✅ Language picker werkt in alle dashboards
+- ✅ Real-time data updates functioneel
+- ✅ Mobile responsive op alle devices
+
+**Impact op Planning:**
+- Week 1: Dashboard overhaul (dit command)
+- Week 2: Resume met Command 9 & 10
+- Totale "vertraging": 1 week
+- Verwachte tijdsbesparing: 2-3 weken door vroege bug detectie
 
 #### **Command 9: Calendar Integration System**
 ```bash

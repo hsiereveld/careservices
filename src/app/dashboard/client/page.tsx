@@ -1,6 +1,8 @@
 'use client'
 
 import { RequireRole } from '@/contexts/auth-context'
+import { useTranslations } from '@/lib/i18n-context'
+import { useServices, useServiceCategories, useProfile } from '@/lib/hooks/use-api'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { 
@@ -16,16 +18,24 @@ import {
 import Link from 'next/link'
 
 export default function ClientDashboard() {
+  const { t } = useTranslations()
+  const { data: services, isLoading: servicesLoading } = useServices()
+  const { data: categories, isLoading: categoriesLoading } = useServiceCategories()  
+  const { data: profile, isLoading: profileLoading } = useProfile()
+
   return (
     <RequireRole roles={['client']}>
       <div className="space-y-6">
           {/* Welcome Section */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Welcome back!
+              {profile?.firstName 
+                ? t('dashboard.client.welcome_name', `Welcome back, ${profile.firstName}!`, { name: profile.firstName })
+                : t('dashboard.client.welcome', 'Welcome back!')
+              }
             </h1>
             <p className="text-gray-600">
-              Find and book trusted professionals for your care needs.
+              {t('dashboard.client.subtitle', 'Find and book trusted professionals for your care needs.')}
             </p>
           </div>
 
