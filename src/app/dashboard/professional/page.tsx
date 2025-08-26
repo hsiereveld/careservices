@@ -1,6 +1,8 @@
 'use client'
 
 import { RequireRole } from '@/contexts/auth-context'
+import { useTranslations } from '@/lib/i18n-context'
+import { useProfessionalDashboardStats } from '@/lib/hooks/use-api'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { 
@@ -16,8 +18,12 @@ import {
   Plus
 } from 'lucide-react'
 import Link from 'next/link'
+import { format } from 'date-fns'
 
 export default function ProfessionalDashboard() {
+  const { t } = useTranslations()
+  const { data: stats, isLoading } = useProfessionalDashboardStats()
+
   return (
     <RequireRole roles={['pro']}>
       <div className="space-y-6">
@@ -39,9 +45,11 @@ export default function ProfessionalDashboard() {
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$2,847</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : `$${stats?.monthlyEarnings?.toFixed(2) || '0.00'}`}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +12% from last month
+                  {stats?.earningsChange > 0 ? '+' : ''}{stats?.earningsChange || 0}% from last month
                 </p>
               </CardContent>
             </Card>
@@ -52,9 +60,11 @@ export default function ProfessionalDashboard() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">18</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : stats?.activeClients || 0}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +3 new this week
+                  +{stats?.newClientsThisWeek || 0} new this week
                 </p>
               </CardContent>
             </Card>
@@ -65,7 +75,9 @@ export default function ProfessionalDashboard() {
                 <Calendar className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">7</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : stats?.upcomingAppointments || 0}
+                </div>
                 <p className="text-xs text-muted-foreground">
                   Next 3 days
                 </p>
@@ -78,9 +90,11 @@ export default function ProfessionalDashboard() {
                 <Star className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">4.8</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : stats?.averageRating?.toFixed(1) || '0.0'}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  Based on 127 reviews
+                  Based on {stats?.totalReviews || 0} reviews
                 </p>
               </CardContent>
             </Card>
@@ -140,26 +154,44 @@ export default function ProfessionalDashboard() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">Booking Rate</span>
-                    <span className="text-sm text-gray-600">87%</span>
+                    <span className="text-sm text-gray-600">{stats?.performanceMetrics?.bookingRate || 0}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-primary-500 h-2 rounded-full" style={{ width: '87%' }}></div>
+                    <div 
+                      className="bg-primary-500 h-2 rounded-full" 
+                      style={{ width: `${stats?.performanceMetrics?.bookingRate || 0}%` }}
+                    ></div>
                   </div>
                   
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">Response Time</span>
-                    <span className="text-sm text-gray-600">&lt; 2 hours</span>
+                    <span className="text-sm text-gray-600">
+                      {stats?.performanceMetrics?.responseTime > 0 
+                        ? `< ${Math.round(stats.performanceMetrics.responseTime)} hours`
+                        : 'N/A'
+                      }
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-green-500 h-2 rounded-full" style={{ width: '95%' }}></div>
+                    <div 
+                      className="bg-green-500 h-2 rounded-full" 
+                      style={{ 
+                        width: `${stats?.performanceMetrics?.responseTime > 0 
+                          ? Math.min((stats.performanceMetrics.responseTime / 24) * 100, 100) 
+                          : 0}%` 
+                      }}
+                    ></div>
                   </div>
                   
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">Client Satisfaction</span>
-                    <span className="text-sm text-gray-600">4.8/5</span>
+                    <span className="text-sm text-gray-600">{stats?.averageRating?.toFixed(1) || '0.0'}/5</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-yellow-500 h-2 rounded-full" style={{ width: '96%' }}></div>
+                    <div 
+                      className="bg-yellow-500 h-2 rounded-full" 
+                      style={{ width: `${(stats?.averageRating || 0) * 20}%` }}
+                    ></div>
                   </div>
                 </div>
               </CardContent>
@@ -171,70 +203,80 @@ export default function ProfessionalDashboard() {
             <CardHeader>
               <CardTitle>Today's Schedule</CardTitle>
               <CardDescription>
-                Your appointments for today, {new Date().toLocaleDateString()}
+                Your appointments for today, {format(new Date(), 'MMM d, yyyy')}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 border rounded-lg bg-green-50 border-green-200">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-gray-900">Emma Wilson</h3>
-                      <p className="text-sm text-gray-500">House Cleaning</p>
-                      <div className="flex items-center text-xs text-gray-400 mt-1">
-                        <Clock className="w-3 h-3 mr-1" />
-                        9:00 AM - 12:00 PM (Completed)
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-lg font-bold text-green-600">$75</span>
-                  </div>
+              {isLoading ? (
+                <div className="text-center py-8 text-muted-foreground">
+                  Loading today's schedule...
                 </div>
-
-                <div className="flex items-center justify-between p-4 border rounded-lg">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <span className="text-primary-600 font-medium">MJ</span>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-gray-900">Michael Johnson</h3>
-                      <p className="text-sm text-gray-500">Elderly Care</p>
-                      <div className="flex items-center text-xs text-gray-400 mt-1">
-                        <Clock className="w-3 h-3 mr-1" />
-                        2:00 PM - 6:00 PM
+              ) : stats?.todaySchedule?.length > 0 ? (
+                <div className="space-y-4">
+                  {stats.todaySchedule.map((appointment) => {
+                    const isCompleted = appointment.status === 'completed'
+                    const isPending = appointment.status === 'pending'
+                    
+                    return (
+                      <div 
+                        key={appointment.id} 
+                        className={`flex items-center justify-between p-4 border rounded-lg ${
+                          isCompleted ? 'bg-green-50 border-green-200' :
+                          isPending ? 'bg-yellow-50 border-yellow-200' :
+                          'bg-white'
+                        }`}
+                      >
+                        <div className="flex items-center space-x-4">
+                          <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                            isCompleted ? 'bg-green-100' :
+                            isPending ? 'bg-yellow-100' :
+                            'bg-primary-100'
+                          }`}>
+                            {isCompleted ? (
+                              <CheckCircle className="w-6 h-6 text-green-600" />
+                            ) : isPending ? (
+                              <AlertCircle className="w-6 h-6 text-yellow-600" />
+                            ) : (
+                              <span className="text-primary-600 font-medium">
+                                {appointment.clientName?.split(' ').map(n => n[0]).join('').toUpperCase()}
+                              </span>
+                            )}
+                          </div>
+                          <div>
+                            <h3 className="font-medium text-gray-900">{appointment.clientName}</h3>
+                            <p className="text-sm text-gray-500">{appointment.serviceName}</p>
+                            <div className="flex items-center text-xs text-gray-400 mt-1">
+                              <Clock className="w-3 h-3 mr-1" />
+                              {format(new Date(appointment.scheduledDate), 'h:mm a')} 
+                              {isCompleted ? ' (Completed)' : isPending ? ' (Pending Confirmation)' : ''}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <span className={`text-lg font-bold ${
+                            isCompleted ? 'text-green-600' :
+                            isPending ? 'text-yellow-600' :
+                            'text-gray-900'
+                          }`}>
+                            ${appointment.amount?.toFixed(2) || '0.00'}
+                          </span>
+                          {isCompleted ? (
+                            <span className="text-sm text-green-600">✓</span>
+                          ) : isPending ? (
+                            <Button variant="outline" size="sm">Confirm</Button>
+                          ) : (
+                            <Button size="sm">Start</Button>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-lg font-bold">$120</span>
-                    <Button size="sm">Start</Button>
-                  </div>
+                    )
+                  })}
                 </div>
-
-                <div className="flex items-center justify-between p-4 border rounded-lg bg-yellow-50 border-yellow-200">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                      <AlertCircle className="w-6 h-6 text-yellow-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-gray-900">Lisa Chen</h3>
-                      <p className="text-sm text-gray-500">Childcare</p>
-                      <div className="flex items-center text-xs text-gray-400 mt-1">
-                        <Clock className="w-3 h-3 mr-1" />
-                        7:00 PM - 10:00 PM (Pending Confirmation)
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-lg font-bold text-yellow-600">$90</span>
-                    <Button variant="outline" size="sm">Confirm</Button>
-                  </div>
+              ) : (
+                <div className="text-center py-8 text-muted-foreground">
+                  No appointments scheduled for today
                 </div>
-              </div>
+              )}
               
               <Button asChild variant="outline" className="w-full mt-4">
                 <Link href="/dashboard/professional/calendar">
@@ -253,34 +295,8 @@ export default function ProfessionalDashboard() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-600 font-medium text-sm">SL</span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900">Sarah Lopez</p>
-                    <p className="text-sm text-gray-600 truncate">
-                      Hi! Could we reschedule tomorrow's appointment to 3 PM instead?
-                    </p>
-                    <p className="text-xs text-gray-400 mt-1">2 hours ago</p>
-                  </div>
-                  <Button variant="outline" size="sm">Reply</Button>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <span className="text-primary-600 font-medium text-sm">RW</span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900">Robert Williams</p>
-                    <p className="text-sm text-gray-600 truncate">
-                      Thank you for the excellent service today! Left a 5-star review.
-                    </p>
-                    <p className="text-xs text-gray-400 mt-1">5 hours ago</p>
-                  </div>
-                  <Button variant="outline" size="sm">Reply</Button>
-                </div>
+              <div className="text-center py-8 text-muted-foreground">
+                Messages system coming soon...
               </div>
               
               <Button asChild variant="outline" className="w-full mt-4">

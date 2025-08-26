@@ -205,15 +205,72 @@ export function useCreateReview() {
   )
 }
 
-// Dashboard stats hooks
-export function useDashboardStats() {
+// Role-specific Dashboard Stats hooks
+export function useClientDashboardStats() {
   const { token, user } = useAuthenticatedAPI()
   
   return useSWR(
-    token && user ? [`/api/dashboard/stats`, token] : null,
+    token && user?.role === 'client' ? ['/api/dashboard/client/stats', token] : null,
+    ([url, token]) => fetcher(url, token),
+    {
+      refreshInterval: 30000, // 30 seconds
+      revalidateOnFocus: true
+    }
+  )
+}
+
+export function useProfessionalDashboardStats() {
+  const { token, user } = useAuthenticatedAPI()
+  
+  return useSWR(
+    token && user?.role === 'pro' ? ['/api/dashboard/professional/stats', token] : null,
+    ([url, token]) => fetcher(url, token),
+    {
+      refreshInterval: 30000, // 30 seconds
+      revalidateOnFocus: true
+    }
+  )
+}
+
+export function useAdminDashboardStats() {
+  const { token, user } = useAuthenticatedAPI()
+  
+  return useSWR(
+    token && user?.role === 'admin' ? ['/api/dashboard/admin/stats', token] : null,
     ([url, token]) => fetcher(url, token),
     {
       refreshInterval: 60000, // 1 minute
+      revalidateOnFocus: true
+    }
+  )
+}
+
+// Generic Dashboard Stats hook (auto-detects role)
+export function useDashboardStats() {
+  const { token, user } = useAuthenticatedAPI()
+  
+  if (!token || !user) return { data: null, isLoading: false, error: null }
+  
+  let endpoint = ''
+  switch (user.role) {
+    case 'client':
+      endpoint = '/api/dashboard/client/stats'
+      break
+    case 'pro':
+      endpoint = '/api/dashboard/professional/stats'
+      break
+    case 'admin':
+      endpoint = '/api/dashboard/admin/stats'
+      break
+    default:
+      return { data: null, isLoading: false, error: 'Unsupported role' }
+  }
+  
+  return useSWR(
+    [endpoint, token],
+    ([url, token]) => fetcher(url, token),
+    {
+      refreshInterval: 30000, // 30 seconds
       revalidateOnFocus: true
     }
   )

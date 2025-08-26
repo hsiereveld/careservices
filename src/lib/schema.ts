@@ -7,7 +7,9 @@ import {
   decimal, 
   jsonb, 
   pgEnum,
-  index
+  index,
+  date,
+  unique
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
@@ -145,6 +147,23 @@ export const serviceCategory = pgTable("service_category", {
   updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
 
+// Service templates for quick service creation
+export const serviceTemplates = pgTable("service_templates", {
+  id: text("id").primaryKey(),
+  categoryId: text("category_id").notNull().references(() => serviceCategory.id),
+  nameKey: text("name_key").notNull(), // Translation key for multi-language support
+  descriptionKey: text("description_key").notNull(),
+  defaultPrice: decimal("default_price", { precision: 10, scale: 2 }),
+  defaultUnit: serviceUnitEnum("default_unit").notNull(),
+  defaultDuration: integer("default_duration"), // in minutes
+  suggestedSkills: jsonb("suggested_skills").$type<string[] | null>(), // Array of skill tags
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+}, (table) => ({
+  categoryIdx: index('idx_templates_category').on(table.categoryId),
+}));
+
 export const service = pgTable("service", {
   id: text("id").primaryKey(),
   proId: text("pro_id").notNull().references(() => user.id),
@@ -159,6 +178,13 @@ export const service = pgTable("service", {
   languages: jsonb("languages").default(['es']),
   requirements: text("requirements"),
   isActive: boolean("is_active").default(true),
+  // New columns for professional dashboard
+  templateId: text("template_id").references(() => serviceTemplates.id),
+  isFromTemplate: boolean("is_from_template").default(false),
+  bufferTime: integer("buffer_time").default(0), // Minutes between bookings
+  maxDailyBookings: integer("max_daily_bookings"),
+  advanceBookingDays: integer("advance_booking_days").default(30), // How far in advance bookings allowed
+  instantBooking: boolean("instant_booking").default(false),
   createdAt: timestamp("createdAt").notNull().defaultNow(),
   updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 }, (table) => ({
@@ -166,6 +192,7 @@ export const service = pgTable("service", {
   categoryIdx: index('service_category_idx').on(table.categoryId),
   franchiseIdx: index('service_franchise_idx').on(table.franchiseId),
   activeIdx: index('service_active_idx').on(table.isActive),
+  professionalActiveIdx: index('idx_services_professional_active').on(table.proId, table.isActive),
 }));
 
 // Booking system
@@ -188,6 +215,12 @@ export const booking = pgTable("booking", {
   address: text("address").notNull(),
   city: text("city").notNull(),
   postalCode: text("postal_code").notNull(),
+  // New columns for professional dashboard
+  declineReason: text("decline_reason"),
+  alternativeTimes: jsonb("alternative_times").$type<Array<{start: string; end: string}> | null>(),
+  lastMessageAt: timestamp("last_message_at"),
+  unreadCountClient: integer("unread_count_client").default(0),
+  unreadCountProfessional: integer("unread_count_professional").default(0),
   createdAt: timestamp("createdAt").notNull().defaultNow(),
   updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 }, (table) => ({
@@ -272,7 +305,7 @@ export const calendarEvent = pgTable("calendar_event", {
   externalIdx: index('event_external_idx').on(table.externalEventId, table.provider),
 }));
 
-// Availability management
+// Availability management (legacy - for backward compatibility)
 export const availability = pgTable("availability", {
   id: text("id").primaryKey(),
   proId: text("pro_id").notNull().references(() => user.id, { onDelete: "cascade" }),
@@ -288,7 +321,22 @@ export const availability = pgTable("availability", {
   dayIdx: index('availability_day_idx').on(table.dayOfWeek),
 }));
 
-// Messages and communication
+// New professional availability table with enhanced features
+export const professionalAvailability = pgTable("professional_availability", {
+  id: text("id").primaryKey(),
+  professionalId: text("professional_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  date: date("date").notNull(),
+  timeSlots: jsonb("time_slots").notNull().$type<Array<{start: string; end: string; status: 'available' | 'blocked'}>>(),
+  recurringPattern: jsonb("recurring_pattern").$type<{type: 'weekly' | 'daily'; days: number[]; until: string} | null>(),
+  timezone: text("timezone").default('Europe/Madrid'),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+}, (table) => ({
+  professionalDateIdx: index('idx_availability_professional_date').on(table.professionalId, table.date),
+  uniqueProfessionalDate: unique('unique_professional_date').on(table.professionalId, table.date),
+}));
+
+// Messages and communication (legacy)
 export const message = pgTable("message", {
   id: text("id").primaryKey(),
   bookingId: text("booking_id").notNull().references(() => booking.id, { onDelete: "cascade" }),
@@ -303,6 +351,22 @@ export const message = pgTable("message", {
   bookingIdx: index('message_booking_idx').on(table.bookingId),
   senderIdx: index('message_sender_idx').on(table.senderId),
   createdIdx: index('message_created_idx').on(table.createdAt),
+}));
+
+// Enhanced messages table for per-booking conversations
+export const messages = pgTable("messages", {
+  id: text("id").primaryKey(),
+  bookingId: text("booking_id").notNull().references(() => booking.id, { onDelete: "cascade" }),
+  senderId: text("sender_id").notNull().references(() => user.id),
+  recipientId: text("recipient_id").notNull().references(() => user.id),
+  content: text("content").notNull(),
+  isRead: boolean("is_read").default(false),
+  readAt: timestamp("read_at"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+}, (table) => ({
+  bookingIdx: index('idx_messages_booking').on(table.bookingId),
+  recipientUnreadIdx: index('idx_messages_recipient_unread').on(table.recipientId, table.isRead),
 }));
 
 // Reviews and ratings

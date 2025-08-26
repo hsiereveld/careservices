@@ -1,0 +1,132 @@
+{
+  "wallet": {
+    "title": "Wallet",
+    "balance": "Available Balance",
+    "pending": "Pending",
+    "total_earned": "Total Earned",
+    "commission_tier": "Commission Tier",
+    "payout": "Request Payout",
+    "instant_payout": "Instant Payout",
+    "standard_payout": "Standard Payout",
+    "bank_account": "Bank Account",
+    "configure_bank": "Configure Bank Account",
+    "transactions": "Transactions",
+    "payouts": "Payouts"
+  },
+  "commission": {
+    "tier": "Commission Tier",
+    "starter": "Starter",
+    "active": "Active",
+    "established": "Established",
+    "elite": "Elite",
+    "rate": "Commission Rate",
+    "months_active": "Months Active",
+    "next_tier": "Next Tier In",
+    "franchise_split": "Franchise Split",
+    "platform_split": "Platform Split",
+    "professional_share": "Your Share"
+  },
+  "payout": {
+    "request": "Request Payout",
+    "amount": "Amount",
+    "minimum": "Minimum",
+    "fee": "Fee",
+    "net_amount": "Net Amount",
+    "instant": "Instant",
+    "standard": "Standard",
+    "processing_time": "Processing Time",
+    "instant_time": "30 minutes",
+    "standard_time": "2-3 business days",
+    "history": "Payout History",
+    "status": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Failed"
+    }
+  },
+  "transaction": {
+    "type": {
+      "booking_payment": "Booking Payment",
+      "commission": "Commission",
+      "refund": "Refund",
+      "payout": "Payout",
+      "adjustment": "Adjustment",
+      "instant_payout_fee": "Instant Payout Fee"
+    },
+    "status": {
+      "pending": "Pending",
+      "completed": "Completed",
+      "failed": "Failed",
+      "processing": "Processing"
+    }
+  },
+  "payment": {
+    "methods": {
+      "card": "Credit/Debit Card",
+      "ideal": "iDEAL",
+      "sepa": "SEPA Direct Debit",
+      "bancontact": "Bancontact",
+      "sofort": "Sofort",
+      "paypal": "PayPal",
+      "bank_transfer": "Bank Transfer"
+    },
+    "status": {
+      "pending": "Payment Pending",
+      "processing": "Processing Payment",
+      "paid": "Paid",
+      "failed": "Payment Failed",
+      "refunded": "Refunded",
+      "partially_refunded": "Partially Refunded"
+    }
+  },
+  "refund": {
+    "policy": "Refund Policy",
+    "full": "Full Refund",
+    "partial": "Partial Refund",
+    "no_refund": "No Refund",
+    "hours_before": "hours before appointment",
+    "percentage": "refund"
+  },
+  "vat": {
+    "rate": "VAT Rate",
+    "standard": "Standard Rate",
+    "reduced": "Reduced Rate",
+    "zero": "Zero Rate",
+    "exempt": "VAT Exempt",
+    "included": "VAT Included",
+    "amount": "VAT Amount"
+  },
+  "admin": {
+    "finance": {
+      "title": "Financial Console",
+      "overview": "Financial Overview",
+      "revenue": "Revenue",
+      "commissions": "Commissions",
+      "payouts": "Payouts",
+      "pending_payouts": "Pending Payouts",
+      "approve": "Approve",
+      "reject": "Reject",
+      "total_revenue": "Total Revenue",
+      "monthly_revenue": "Monthly Revenue",
+      "platform_earnings": "Platform Earnings",
+      "franchise_earnings": "Franchise Earnings",
+      "reconciliation": "Reconciliation",
+      "export": "Export Report"
+    }
+  },
+  "errors": {
+    "insufficient_balance": "Insufficient balance",
+    "minimum_payout": "Amount below minimum payout threshold",
+    "bank_not_configured": "Please configure your bank account first",
+    "payment_failed": "Payment failed",
+    "refund_failed": "Refund failed",
+    "payout_failed": "Payout failed"
+  },
+  "success": {
+    "payment_completed": "Payment completed successfully",
+    "refund_processed": "Refund processed successfully",
+    "payout_requested": "Payout requested successfully",
+    "bank_configured": "Bank account configured successfully"
+  }
+}

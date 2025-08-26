@@ -1,0 +1,12 @@
+{
+  "title": "AI Chat",
+  "welcome": "Hallo! 👋 Ik ben je Care & Service assistent. Hoe kan ik je helpen?",
+  "startConversation": "Start een gesprek met AI",
+  "you": "Jij",
+  "ai": "AI",
+  "loading": "Aan het laden...",
+  "placeholder": "Typ je bericht...",
+  "send": "Verstuur",
+  "error": "Sorry, er is een fout opgetreden. Probeer het opnieuw.",
+  "assistant": "AI Assistent"
+}

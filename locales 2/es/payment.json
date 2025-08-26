@@ -1,0 +1,132 @@
+{
+  "wallet": {
+    "title": "Cartera",
+    "balance": "Saldo Disponible",
+    "pending": "Pendiente",
+    "total_earned": "Total Ganado",
+    "commission_tier": "Nivel de Comisión",
+    "payout": "Solicitar Pago",
+    "instant_payout": "Pago Instantáneo",
+    "standard_payout": "Pago Estándar",
+    "bank_account": "Cuenta Bancaria",
+    "configure_bank": "Configurar Cuenta Bancaria",
+    "transactions": "Transacciones",
+    "payouts": "Pagos"
+  },
+  "commission": {
+    "tier": "Nivel de Comisión",
+    "starter": "Principiante",
+    "active": "Activo",
+    "established": "Establecido",
+    "elite": "Elite",
+    "rate": "Tasa de Comisión",
+    "months_active": "Meses Activo",
+    "next_tier": "Próximo Nivel En",
+    "franchise_split": "División Franquicia",
+    "platform_split": "División Plataforma",
+    "professional_share": "Tu Parte"
+  },
+  "payout": {
+    "request": "Solicitar Pago",
+    "amount": "Cantidad",
+    "minimum": "Mínimo",
+    "fee": "Tarifa",
+    "net_amount": "Cantidad Neta",
+    "instant": "Instantáneo",
+    "standard": "Estándar",
+    "processing_time": "Tiempo de Procesamiento",
+    "instant_time": "30 minutos",
+    "standard_time": "2-3 días hábiles",
+    "history": "Historial de Pagos",
+    "status": {
+      "pending": "Pendiente",
+      "processing": "Procesando",
+      "completed": "Completado",
+      "failed": "Fallido"
+    }
+  },
+  "transaction": {
+    "type": {
+      "booking_payment": "Pago de Reserva",
+      "commission": "Comisión",
+      "refund": "Reembolso",
+      "payout": "Pago",
+      "adjustment": "Ajuste",
+      "instant_payout_fee": "Tarifa de Pago Instantáneo"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "completed": "Completado",
+      "failed": "Fallido",
+      "processing": "Procesando"
+    }
+  },
+  "payment": {
+    "methods": {
+      "card": "Tarjeta de Crédito/Débito",
+      "ideal": "iDEAL",
+      "sepa": "Débito Directo SEPA",
+      "bancontact": "Bancontact",
+      "sofort": "Sofort",
+      "paypal": "PayPal",
+      "bank_transfer": "Transferencia Bancaria"
+    },
+    "status": {
+      "pending": "Pago Pendiente",
+      "processing": "Procesando Pago",
+      "paid": "Pagado",
+      "failed": "Pago Fallido",
+      "refunded": "Reembolsado",
+      "partially_refunded": "Parcialmente Reembolsado"
+    }
+  },
+  "refund": {
+    "policy": "Política de Reembolso",
+    "full": "Reembolso Completo",
+    "partial": "Reembolso Parcial",
+    "no_refund": "Sin Reembolso",
+    "hours_before": "horas antes de la cita",
+    "percentage": "reembolso"
+  },
+  "vat": {
+    "rate": "Tasa de IVA",
+    "standard": "Tasa Estándar",
+    "reduced": "Tasa Reducida",
+    "zero": "Tasa Cero",
+    "exempt": "Exento de IVA",
+    "included": "IVA Incluido",
+    "amount": "Cantidad de IVA"
+  },
+  "admin": {
+    "finance": {
+      "title": "Consola Financiera",
+      "overview": "Resumen Financiero",
+      "revenue": "Ingresos",
+      "commissions": "Comisiones",
+      "payouts": "Pagos",
+      "pending_payouts": "Pagos Pendientes",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "total_revenue": "Ingresos Totales",
+      "monthly_revenue": "Ingresos Mensuales",
+      "platform_earnings": "Ganancias de la Plataforma",
+      "franchise_earnings": "Ganancias de Franquicia",
+      "reconciliation": "Reconciliación",
+      "export": "Exportar Informe"
+    }
+  },
+  "errors": {
+    "insufficient_balance": "Saldo insuficiente",
+    "minimum_payout": "Cantidad por debajo del umbral mínimo de pago",
+    "bank_not_configured": "Por favor configure su cuenta bancaria primero",
+    "payment_failed": "Pago fallido",
+    "refund_failed": "Reembolso fallido",
+    "payout_failed": "Pago fallido"
+  },
+  "success": {
+    "payment_completed": "Pago completado con éxito",
+    "refund_processed": "Reembolso procesado con éxito",
+    "payout_requested": "Pago solicitado con éxito",
+    "bank_configured": "Cuenta bancaria configurada con éxito"
+  }
+}

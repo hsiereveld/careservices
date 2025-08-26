@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { service, serviceCategory, user, franchiseTerritory } from "@/lib/schema";
+import { service, serviceCategory, user, franchiseTerritory, serviceTemplates } from "@/lib/schema";
 import { withAuth } from "@/lib/auth-middleware";
 import { eq, and, or, ilike, sql, desc, asc, gte, lte } from "drizzle-orm";
 import { v4 as uuidv4 } from "uuid";
+import { z } from "zod";
+import type { ApiResponse, ServiceFormData } from "@/lib/types/professional-dashboard";
 
 // GET /api/services - List services with filtering and search
 export const GET = async (request: NextRequest) => {
@@ -126,78 +128,119 @@ export const GET = async (request: NextRequest) => {
   }
 };
 
+// Validation schema for service creation
+const serviceSchema = z.object({
+  name: z.string().min(3).max(100),
+  description: z.string().min(10).max(1000),
+  categoryId: z.string(),
+  templateId: z.string().optional(),
+  basePrice: z.number().positive(),
+  priceUnit: z.enum(['hour', 'day', 'piece', 'service', 'km']),
+  duration: z.number().optional(),
+  serviceRadius: z.number().min(1).max(100).default(25),
+  languages: z.array(z.string()).default(['es']),
+  requirements: z.string().optional(),
+  bufferTime: z.number().min(0).max(120).default(0),
+  maxDailyBookings: z.number().min(1).max(50).optional(),
+  advanceBookingDays: z.number().min(1).max(365).default(30),
+  instantBooking: z.boolean().default(false),
+});
+
 // POST /api/services - Create new service (professionals only)
 export const POST = withAuth(
   async (request: NextRequest, user) => {
     try {
       // Only professionals, franchise owners, and admins can create services
       if (!["pro", "franchise", "admin"].includes(user.role)) {
-        return NextResponse.json(
-          { error: "Only professionals can create services" },
+        return NextResponse.json<ApiResponse<null>>(
+          {
+            success: false,
+            error: {
+              code: 'FORBIDDEN',
+              message: "Only professionals can create services"
+            }
+          },
           { status: 403 }
         );
       }
 
       const body = await request.json();
-      const {
-        categoryId,
-        name,
-        description,
-        basePrice,
-        priceUnit,
-        duration,
-        serviceRadius = 25,
-        languages = ["es"],
-        requirements,
-        franchiseId,
-      } = body;
-
-      // Validate required fields
-      if (!categoryId || !name || !description || !basePrice || !priceUnit) {
-        return NextResponse.json(
-          { error: "Missing required fields" },
+      
+      // Validate request body
+      const validationResult = serviceSchema.safeParse(body);
+      
+      if (!validationResult.success) {
+        return NextResponse.json<ApiResponse<null>>(
+          {
+            success: false,
+            error: {
+              code: 'VALIDATION_ERROR',
+              message: "Invalid input data",
+              details: validationResult.error.flatten()
+            }
+          },
           { status: 400 }
         );
       }
+      
+      const data = validationResult.data;
 
       // Validate category exists
       const category = await db
         .select()
         .from(serviceCategory)
-        .where(eq(serviceCategory.id, categoryId))
+        .where(eq(serviceCategory.id, data.categoryId))
         .limit(1);
 
       if (category.length === 0) {
-        return NextResponse.json(
-          { error: "Invalid service category" },
+        return NextResponse.json<ApiResponse<null>>(
+          {
+            success: false,
+            error: {
+              code: 'INVALID_CATEGORY',
+              message: "Invalid service category"
+            }
+          },
           { status: 400 }
         );
       }
 
-      // Validate price unit
-      const validUnits = ["hour", "day", "piece", "service", "km"];
-      if (!validUnits.includes(priceUnit)) {
-        return NextResponse.json(
-          { error: "Invalid price unit" },
-          { status: 400 }
-        );
+      // If template is provided, fetch template details
+      let templateData = null;
+      if (data.templateId) {
+        const template = await db
+          .select()
+          .from(serviceTemplates)
+          .where(eq(serviceTemplates.id, data.templateId))
+          .limit(1);
+        
+        if (template.length > 0) {
+          templateData = template[0];
+        }
       }
 
       // Create service
       const newService = {
         id: uuidv4(),
         proId: user.id,
-        categoryId,
-        franchiseId: franchiseId || null,
-        name: name.trim(),
-        description: description.trim(),
-        basePrice: parseFloat(basePrice).toFixed(2),
-        priceUnit,
-        duration: duration ? parseInt(duration) : null,
-        serviceRadius: Math.min(Math.max(parseInt(serviceRadius) || 25, 1), 100), // Clamp between 1-100km
-        languages: Array.isArray(languages) ? languages : ["es"],
-        requirements: requirements?.trim() || null,
+        categoryId: data.categoryId,
+        franchiseId: null, // Set by franchise logic if needed
+        name: data.name.trim(),
+        description: data.description.trim(),
+        basePrice: data.basePrice.toFixed(2),
+        priceUnit: data.priceUnit,
+        duration: data.duration || templateData?.defaultDuration || null,
+        serviceRadius: data.serviceRadius,
+        languages: data.languages,
+        requirements: data.requirements?.trim() || null,
         isActive: true,
+        // New fields for professional dashboard
+        templateId: data.templateId || null,
+        isFromTemplate: !!data.templateId,
+        bufferTime: data.bufferTime,
+        maxDailyBookings: data.maxDailyBookings || null,
+        advanceBookingDays: data.advanceBookingDays,
+        instantBooking: data.instantBooking,
       };
 
       const [createdService] = await db

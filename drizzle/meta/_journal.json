@@ -15,6 +15,13 @@
       "when": 1755784854304,
       "tag": "0001_slow_doomsday",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756212985906,
+      "tag": "0002_flimsy_phil_sheldon",
+      "breakpoints": true
     }
   ]
 }

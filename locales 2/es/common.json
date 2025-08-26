@@ -1,0 +1,417 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "howItWorks": "Cómo Funciona",
+    "forProfessionals": "Para Profesionales",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Plataforma #1 para Inmigrantes en España",
+    "title": {
+      "connecting": "Conectamos",
+      "immigrants": "Inmigrantes",
+      "withProfessionals": "con Profesionales Locales"
+    },
+    "description": "Care & Service es tu plataforma de confianza para encontrar servicios de calidad en tu idioma. Desde cuidado y bienestar hasta servicios técnicos, conectamos tu necesidad con el profesional perfecto.",
+    "buttons": {
+      "findServices": "Encontrar Servicios",
+      "becomeProfessional": "Ser Profesional"
+    },
+    "features": {
+      "freeVerification": "Verificación Gratuita",
+      "support247": "Soporte 24/7",
+      "securePayments": "Pagos Seguros"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "description": "Encuentra el profesional perfecto para cualquier necesidad. Todos nuestros proveedores están verificados y hablan tu idioma.",
+    "categories": {
+      "healthcare": {
+        "title": "Cuidado & Salud",
+        "description": "Atención médica, cuidado domiciliario, fisioterapia y otros servicios de salud"
+      },
+      "technical": {
+        "title": "Servicios Técnicos",
+        "description": "Reparaciones, instalaciones, mantenimiento y soporte técnico"
+      },
+      "administrative": {
+        "title": "Administrativo & Legal",
+        "description": "Declaraciones de impuestos, asesoría legal, apoyo administrativo"
+      },
+      "childcare": {
+        "title": "Cuidado Infantil",
+        "description": "Niñeras, guarderías, cuidado de niños"
+      },
+      "transport": {
+        "title": "Transporte",
+        "description": "Taxis, mudanzas, servicios de entrega"
+      },
+      "sports": {
+        "title": "Deporte & Recreación",
+        "description": "Entrenadores personales, clases deportivas, actividades recreativas"
+      },
+      "social": {
+        "title": "Actividades Sociales",
+        "description": "Compañía, eventos, apoyo social"
+      },
+      "domestic": {
+        "title": "Servicios Domésticos",
+        "description": "Limpieza, jardinería, tareas del hogar"
+      }
+    },
+    "featuredServices": {
+      "title": "Servicios Destacados",
+      "description": "Descubre los servicios más recientes de profesionales verificados",
+      "viewAllCategories": "Ver todas las categorías",
+      "viewAllServices": "Ver Todos los Servicios",
+      "professional": "Profesional:",
+      "price": "Precio:",
+      "duration": "Duración:",
+      "radius": "Radio:",
+      "viewDetails": "Ver Detalles",
+      "verified": "Verificado",
+      "findServicesFor": "Encuentra servicios de"
+    }
+  },
+  "howItWorks": {
+    "title": "Cómo Funciona",
+    "description": "Tres simples pasos para conectar con el profesional que necesitas",
+    "steps": {
+      "search": {
+        "title": "1. Busca tu Servicio",
+        "description": "Explora nuestras categorías o usa nuestro chat AI para encontrar exactamente lo que necesitas"
+      },
+      "connect": {
+        "title": "2. Conecta con Profesionales",
+        "description": "Ve perfiles verificados, lee reseñas y elige el profesional que mejor se adapte a tus necesidades"
+      },
+      "book": {
+        "title": "3. Reserva y Disfruta",
+        "description": "Programa tu cita, paga de forma segura y recibe el servicio de calidad que mereces"
+      }
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Empezar?",
+    "description": "Únete a miles de personas que ya confían en Care & Service para sus necesidades diarias",
+    "buttons": {
+      "exploreServices": "Explorar Servicios",
+      "chatWithAI": "Hablar con AI Assistant"
+    }
+  },
+  "trust": {
+    "title": "Plataforma de Confianza",
+    "description": "Miles de usuarios ya confían en Care & Service",
+    "stats": {
+      "servicesCompleted": "Servicios Completados",
+      "professionalVerified": "Profesionales Verificados",
+      "averageRating": "Calificación Promedio",
+      "responseTime": "Tiempo de Respuesta"
+    },
+    "badges": {
+      "identityVerification": "Verificación de Identidad",
+      "securePayments": "Pagos Seguros",
+      "support247": "Soporte 24/7"
+    }
+  },
+  "chat": {
+    "loading": "Cargando..."
+  },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión",
+    "welcome": "Bienvenido",
+    "loading": "Cargando...",
+    "signUp": "Registrarse",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "name": "Nombre",
+    "emailPlaceholder": "tu@email.com",
+    "passwordPlaceholder": "Mínimo 8 caracteres",
+    "namePlaceholder": "Tu nombre completo",
+    "createAccount": "Crear cuenta",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "noAccount": "¿No tienes cuenta?",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "resetPassword": "Restablecer contraseña",
+    "backToSignIn": "Volver a iniciar sesión",
+    "orContinueWith": "O continúa con",
+    "rememberMe": "Recordarme",
+    "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+    "passwordsDontMatch": "Las contraseñas no coinciden",
+    "invalidEmail": "Dirección de correo inválida",
+    "nameRequired": "El nombre es obligatorio",
+    "chooseMethod": "Elige tu método preferido de inicio de sesión"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "footer": {
+    "description": "Conectamos inmigrantes y expatriados con profesionales locales de confianza en España para todo tipo de servicios.",
+    "services": {
+      "title": "Servicios",
+      "healthcare": "Cuidado & Salud",
+      "technical": "Servicios Técnicos",
+      "childcare": "Cuidado Infantil",
+      "transport": "Transporte"
+    },
+    "company": {
+      "title": "Empresa",
+      "about": "Acerca de",
+      "careers": "Carreras",
+      "press": "Prensa",
+      "contact": "Contacto"
+    },
+    "support": {
+      "title": "Soporte",
+      "help": "Centro de Ayuda",
+      "safety": "Seguridad",
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    },
+    "copyright": "© 2025 Care & Service. Todos los derechos reservados."
+  },
+  "priceUnits": {
+    "perHour": "/hora",
+    "perDay": "/día",
+    "perPiece": "/pieza",
+    "perService": "/servicio",
+    "perKm": "/km",
+    "perMeter": "/metro",
+    "perSquareMeter": "/m²",
+    "perHourFull": "Por hora",
+    "perDayFull": "Por día",
+    "perPieceFull": "Por pieza",
+    "perServiceFull": "Por servicio",
+    "perKmFull": "Por kilómetro",
+    "perMeterFull": "Por metro",
+    "perSquareMeterFull": "Por metro cuadrado (m²)"
+  },
+  "vat": {
+    "vatRate": "Tasa de IVA",
+    "standardRate": "Tasa estándar",
+    "reducedRate": "Tasa reducida",
+    "exempt": "Exento",
+    "priceInclVat": "Precio incluye IVA",
+    "priceExclVat": "Precio excluye IVA",
+    "priceBreakdown": "Desglose de precio",
+    "inclVat": "inc. IVA",
+    "exclVat": "exc. IVA",
+    "inclVatShort": "inc.",
+    "exclVatShort": "exc.",
+    "vat": "IVA"
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Encuentra el Servicio Perfecto",
+      "subtitle": "Descubre proveedores de servicios profesionales cerca de ti"
+    },
+    "search": {
+      "placeholder": "Buscar servicios...",
+      "postcode": "Código postal",
+      "button": "Buscar"
+    },
+    "filters": {
+      "allCategories": "Todas las categorías"
+    },
+    "sort": {
+      "relevance": "Relevancia",
+      "priceLowToHigh": "Precio (menor a mayor)",
+      "priceHighToLow": "Precio (mayor a menor)",
+      "bestRating": "Mejor valoración",
+      "nearest": "Más cercano"
+    },
+    "results": {
+      "servicesFound": "{{count}} servicios encontrados",
+      "noServicesFound": "No se encontraron servicios",
+      "tryDifferentSearch": "Prueba ajustar tu búsqueda o quitar filtros"
+    },
+    "loading": {
+      "searchingServices": "Buscando servicios..."
+    },
+    "serviceCard": {
+      "serviceRadius": "{{radius}} km área de servicio",
+      "reviews": "({{count}} reseñas)",
+      "by": "Por: {{name}}",
+      "moreInfo": "Más Info",
+      "bookNow": "Reservar Ahora",
+      "contact": "Contactar"
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "description": "Gestiona la configuración de tu cuenta, preferencias de privacidad y notificaciones",
+    "tabs": {
+      "general": "General",
+      "security": "Seguridad", 
+      "privacy": "Privacidad",
+      "notifications": "Notificaciones"
+    },
+    "languageRegion": "Idioma y Región",
+    "language": "Idioma",
+    "timezone": "Zona Horaria",
+    "accountInformation": "Información de la Cuenta",
+    "accountStatus": "Estado de la Cuenta",
+    "emailVerification": "Verificación de Email",
+    "active": "Activo",
+    "pending": "Pendiente",
+    "verified": "Verificado",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "settingsSaved": "¡Configuración guardada con éxito!"
+  },
+  "dashboard": {
+    "client": {
+      "welcome": "¡Bienvenido de vuelta!",
+      "welcome_name": "¡Bienvenido de vuelta, {{name}}!",
+      "subtitle": "Encuentra y reserva profesionales de confianza para tus necesidades de cuidado.",
+      "stats": {
+        "active_bookings": "Reservas Activas",
+        "completed_total": "{{count}} completadas en total",
+        "no_completed": "Aún no hay reservas completadas",
+        "favorite_pros": "Profesionales Favoritos",
+        "ready_to_book": "Listo para reservar de nuevo",
+        "book_services": "Reserva servicios para agregar favoritos",
+        "unread_messages": "Mensajes Sin Leer",
+        "new_responses": "Nuevas respuestas disponibles",
+        "all_read": "Todos los mensajes leídos",
+        "reviews_given": "Reseñas Dadas",
+        "avg_rating": "Promedio {{rating}} estrellas",
+        "no_reviews": "Aún no hay reseñas"
+      },
+      "quick_actions": {
+        "book_service": "Reservar un Servicio",
+        "book_service_desc": "Encuentra y reserva profesionales de confianza cerca de ti",
+        "house_cleaning": "Limpieza del Hogar",
+        "elderly_care": "Cuidado de Ancianos",
+        "childcare": "Cuidado Infantil",
+        "pet_care": "Cuidado de Mascotas",
+        "browse_all": "Ver Todos los Servicios"
+      },
+      "activity": {
+        "recent_activity": "Actividad Reciente",
+        "activity_desc": "Tus últimas reservas e interacciones",
+        "just_now": "Justo ahora",
+        "minutes_ago": "hace {{count}} minutos",
+        "hours_ago": "hace {{count}} horas",
+        "days_ago": "hace {{count}} días",
+        "action_required": "Acción Requerida",
+        "no_activity": "Sin actividad reciente",
+        "book_prompt": "Reserva un servicio para comenzar",
+        "view_all": "Ver Toda la Actividad"
+      },
+      "appointments": {
+        "upcoming": "Citas Próximas",
+        "upcoming_desc": "Tus servicios programados para los próximos 7 días",
+        "message": "Mensaje",
+        "reschedule": "Reprogramar",
+        "no_upcoming": "No hay citas próximas",
+        "book_now": "Reserva un servicio para comenzar",
+        "browse_services": "Ver Servicios",
+        "view_all": "Ver Todas las Reservas"
+      }
+    },
+    "professional": {
+      "welcome": "¡Bienvenido de vuelta, {{name}}!",
+      "subtitle": "Gestiona tus servicios y haz crecer tu negocio",
+      "commission": "Tarifa de Comisión",
+      "profileCompletion": "Completitud del Perfil",
+      "totalServices": "Total de Servicios",
+      "eligibleBadge": "Elegible para insignia Activo",
+      "needMore": "{{count}} más para insignia Activo",
+      "activeBookings": "Reservas Activas",
+      "thisWeek": "Esta semana",
+      "totalClients": "Total de Clientes",
+      "growth": "+{{percent}}% este mes",
+      "rating": "Calificación Promedio",
+      "earnings": "Resumen de Ganancias",
+      "thisMonth": "Este Mes",
+      "pending": "Pagos Pendientes",
+      "viewDetails": "Ver Detalles",
+      "loyalty": "Programa de Lealtad",
+      "points": "Puntos de Lealtad",
+      "nextReward": "Próxima Recompensa",
+      "tier": "Miembro Plata",
+      "upcoming": "Reservas Próximas",
+      "viewAll": "Ver Todo",
+      "noBookings": "No hay reservas próximas",
+      "addService": "Agregar Nuevo Servicio",
+      "setAvailability": "Establecer Disponibilidad",
+      "manageClients": "Gestionar Clientes",
+      "loading": "Cargando..."
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Panel de Administración",
+      "subtitle": "Gestiona la plataforma, usuarios y rendimiento del sistema",
+      "stats": {
+        "totalUsers": "Total de Usuarios",
+        "totalUsersGrowth": "+20,1% del mes pasado",
+        "activeFranchises": "Franquicias Activas"
+      },
+      "recentActivity": {
+        "hoursAgo": "horas atrás"
+      }
+    }
+  },
+  "stats": {
+    "acrossRegions": "En todas las regiones",
+    "monthlyRevenue": "Ingresos Mensuales",
+    "monthlyGrowth": "+12,5% del mes pasado",
+    "systemUptime": "Tiempo de Actividad del Sistema",
+    "last30Days": "Últimos 30 días"
+  },
+  "systemHealth": {
+    "title": "Salud del Sistema",
+    "description": "Rendimiento del sistema en tiempo real y monitoreo",
+    "apiResponseTime": "Tiempo de Respuesta de API",
+    "databasePerformance": "Rendimiento de Base de Datos",
+    "optimal": "Óptimo",
+    "serverLoad": "Carga del Servidor",
+    "securityStatus": "Estado de Seguridad",
+    "secure": "Seguro"
+  },
+  "alerts": {
+    "title": "Alertas del Sistema",
+    "description": "Notificaciones importantes y advertencias",
+    "highMemoryUsage": "Alto Uso de Memoria",
+    "highMemoryDescription": "Servidor usando 87% de memoria disponible",
+    "pendingReviews": "Reseñas Pendientes",
+    "pendingReviewsDescription": "12 verificaciones profesionales esperando aprobación",
+    "viewAll": "Ver Todo"
+  },
+  "quickActions": {
+    "title": "Acciones Rápidas",
+    "description": "Atajos a funciones administrativas comunes",
+    "manageUsers": "Gestionar Usuarios",
+    "franchises": "Franquicias",
+    "security": "Seguridad",
+    "analytics": "Analíticas",
+    "settings": "Configuraciones",
+    "professionals": "Profesionales",
+    "reports": "Reportes",
+    "system": "Sistema"
+  },
+  "platformGrowth": {
+    "title": "Crecimiento de la Plataforma",
+    "description": "Métricas clave de crecimiento y tendencias",
+    "newUsers30Days": "Nuevos Usuarios (30 días)",
+    "activeProfessionals": "Profesionales Activos",
+    "bookingCompletionRate": "Tasa de Completitud de Reservas"
+  },
+  "recentActivity": {
+    "title": "Actividad Reciente",
+    "description": "Últimos eventos importantes de la plataforma",
+    "franchiseApproved": "Nueva franquicia aprobada en Amsterdam",
+    "securityPolicyUpdated": "Política de seguridad actualizada",
+    "verificationCompleted": "Verificación masiva de profesionales completada",
+    "backupCompleted": "Respaldo automático del sistema completado",
+    "dayAgo": "hace 1 día"
+  }
+}

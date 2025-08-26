@@ -1,0 +1,132 @@
+{
+  "wallet": {
+    "title": "Portemonnee",
+    "balance": "Beschikbaar Saldo",
+    "pending": "In Behandeling",
+    "total_earned": "Totaal Verdiend",
+    "commission_tier": "Commissie Niveau",
+    "payout": "Uitbetaling Aanvragen",
+    "instant_payout": "Directe Uitbetaling",
+    "standard_payout": "Standaard Uitbetaling",
+    "bank_account": "Bankrekening",
+    "configure_bank": "Bankrekening Configureren",
+    "transactions": "Transacties",
+    "payouts": "Uitbetalingen"
+  },
+  "commission": {
+    "tier": "Commissie Niveau",
+    "starter": "Starter",
+    "active": "Actief",
+    "established": "Gevestigd",
+    "elite": "Elite",
+    "rate": "Commissie Tarief",
+    "months_active": "Maanden Actief",
+    "next_tier": "Volgend Niveau Over",
+    "franchise_split": "Franchise Verdeling",
+    "platform_split": "Platform Verdeling",
+    "professional_share": "Jouw Aandeel"
+  },
+  "payout": {
+    "request": "Uitbetaling Aanvragen",
+    "amount": "Bedrag",
+    "minimum": "Minimum",
+    "fee": "Kosten",
+    "net_amount": "Netto Bedrag",
+    "instant": "Direct",
+    "standard": "Standaard",
+    "processing_time": "Verwerkingstijd",
+    "instant_time": "30 minuten",
+    "standard_time": "2-3 werkdagen",
+    "history": "Uitbetalingsgeschiedenis",
+    "status": {
+      "pending": "In Afwachting",
+      "processing": "In Verwerking",
+      "completed": "Voltooid",
+      "failed": "Mislukt"
+    }
+  },
+  "transaction": {
+    "type": {
+      "booking_payment": "Boekingsbetaling",
+      "commission": "Commissie",
+      "refund": "Terugbetaling",
+      "payout": "Uitbetaling",
+      "adjustment": "Aanpassing",
+      "instant_payout_fee": "Directe Uitbetalingskosten"
+    },
+    "status": {
+      "pending": "In Afwachting",
+      "completed": "Voltooid",
+      "failed": "Mislukt",
+      "processing": "In Verwerking"
+    }
+  },
+  "payment": {
+    "methods": {
+      "card": "Creditcard/Betaalkaart",
+      "ideal": "iDEAL",
+      "sepa": "SEPA Incasso",
+      "bancontact": "Bancontact",
+      "sofort": "Sofort",
+      "paypal": "PayPal",
+      "bank_transfer": "Bankoverschrijving"
+    },
+    "status": {
+      "pending": "Betaling in Afwachting",
+      "processing": "Betaling Verwerken",
+      "paid": "Betaald",
+      "failed": "Betaling Mislukt",
+      "refunded": "Terugbetaald",
+      "partially_refunded": "Gedeeltelijk Terugbetaald"
+    }
+  },
+  "refund": {
+    "policy": "Retourbeleid",
+    "full": "Volledige Terugbetaling",
+    "partial": "Gedeeltelijke Terugbetaling",
+    "no_refund": "Geen Terugbetaling",
+    "hours_before": "uur voor afspraak",
+    "percentage": "terugbetaling"
+  },
+  "vat": {
+    "rate": "BTW Tarief",
+    "standard": "Standaard Tarief",
+    "reduced": "Verlaagd Tarief",
+    "zero": "Nul Tarief",
+    "exempt": "BTW Vrijgesteld",
+    "included": "BTW Inbegrepen",
+    "amount": "BTW Bedrag"
+  },
+  "admin": {
+    "finance": {
+      "title": "Financieel Dashboard",
+      "overview": "Financieel Overzicht",
+      "revenue": "Omzet",
+      "commissions": "Commissies",
+      "payouts": "Uitbetalingen",
+      "pending_payouts": "Openstaande Uitbetalingen",
+      "approve": "Goedkeuren",
+      "reject": "Afwijzen",
+      "total_revenue": "Totale Omzet",
+      "monthly_revenue": "Maandelijkse Omzet",
+      "platform_earnings": "Platform Inkomsten",
+      "franchise_earnings": "Franchise Inkomsten",
+      "reconciliation": "Reconciliatie",
+      "export": "Rapport Exporteren"
+    }
+  },
+  "errors": {
+    "insufficient_balance": "Onvoldoende saldo",
+    "minimum_payout": "Bedrag onder minimum uitbetalingsdrempel",
+    "bank_not_configured": "Configureer eerst uw bankrekening",
+    "payment_failed": "Betaling mislukt",
+    "refund_failed": "Terugbetaling mislukt",
+    "payout_failed": "Uitbetaling mislukt"
+  },
+  "success": {
+    "payment_completed": "Betaling succesvol voltooid",
+    "refund_processed": "Terugbetaling succesvol verwerkt",
+    "payout_requested": "Uitbetaling succesvol aangevraagd",
+    "bank_configured": "Bankrekening succesvol geconfigureerd"
+  }
+}

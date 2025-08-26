@@ -1,0 +1,3 @@
+# Spec Summary (Lite)
+
+Implement a mobile-first professional dashboard enabling service providers to manage individual service listings (via templates or custom), set manual availability, handle booking requests with per-booking messaging, and view earnings. This enhancement empowers professionals to efficiently run their business on the platform while maintaining clear client communication through organized, booking-specific chat threads.

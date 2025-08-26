@@ -1,0 +1,132 @@
+{
+  "wallet": {
+    "title": "Geldbörse",
+    "balance": "Verfügbares Guthaben",
+    "pending": "Ausstehend",
+    "total_earned": "Gesamt Verdient",
+    "commission_tier": "Provisionsstufe",
+    "payout": "Auszahlung Anfordern",
+    "instant_payout": "Sofortauszahlung",
+    "standard_payout": "Standardauszahlung",
+    "bank_account": "Bankkonto",
+    "configure_bank": "Bankkonto Konfigurieren",
+    "transactions": "Transaktionen",
+    "payouts": "Auszahlungen"
+  },
+  "commission": {
+    "tier": "Provisionsstufe",
+    "starter": "Anfänger",
+    "active": "Aktiv",
+    "established": "Etabliert",
+    "elite": "Elite",
+    "rate": "Provisionssatz",
+    "months_active": "Monate Aktiv",
+    "next_tier": "Nächste Stufe In",
+    "franchise_split": "Franchise-Aufteilung",
+    "platform_split": "Plattform-Aufteilung",
+    "professional_share": "Ihr Anteil"
+  },
+  "payout": {
+    "request": "Auszahlung Anfordern",
+    "amount": "Betrag",
+    "minimum": "Minimum",
+    "fee": "Gebühr",
+    "net_amount": "Nettobetrag",
+    "instant": "Sofort",
+    "standard": "Standard",
+    "processing_time": "Bearbeitungszeit",
+    "instant_time": "30 Minuten",
+    "standard_time": "2-3 Werktage",
+    "history": "Auszahlungsverlauf",
+    "status": {
+      "pending": "Ausstehend",
+      "processing": "In Bearbeitung",
+      "completed": "Abgeschlossen",
+      "failed": "Fehlgeschlagen"
+    }
+  },
+  "transaction": {
+    "type": {
+      "booking_payment": "Buchungszahlung",
+      "commission": "Provision",
+      "refund": "Rückerstattung",
+      "payout": "Auszahlung",
+      "adjustment": "Anpassung",
+      "instant_payout_fee": "Sofortauszahlungsgebühr"
+    },
+    "status": {
+      "pending": "Ausstehend",
+      "completed": "Abgeschlossen",
+      "failed": "Fehlgeschlagen",
+      "processing": "In Bearbeitung"
+    }
+  },
+  "payment": {
+    "methods": {
+      "card": "Kredit-/Debitkarte",
+      "ideal": "iDEAL",
+      "sepa": "SEPA-Lastschrift",
+      "bancontact": "Bancontact",
+      "sofort": "Sofort",
+      "paypal": "PayPal",
+      "bank_transfer": "Banküberweisung"
+    },
+    "status": {
+      "pending": "Zahlung Ausstehend",
+      "processing": "Zahlung Verarbeiten",
+      "paid": "Bezahlt",
+      "failed": "Zahlung Fehlgeschlagen",
+      "refunded": "Erstattet",
+      "partially_refunded": "Teilweise Erstattet"
+    }
+  },
+  "refund": {
+    "policy": "Rückerstattungsrichtlinie",
+    "full": "Vollständige Rückerstattung",
+    "partial": "Teilweise Rückerstattung",
+    "no_refund": "Keine Rückerstattung",
+    "hours_before": "Stunden vor dem Termin",
+    "percentage": "Rückerstattung"
+  },
+  "vat": {
+    "rate": "MwSt.-Satz",
+    "standard": "Standardsatz",
+    "reduced": "Ermäßigter Satz",
+    "zero": "Nullsatz",
+    "exempt": "MwSt.-Befreit",
+    "included": "MwSt. Inbegriffen",
+    "amount": "MwSt.-Betrag"
+  },
+  "admin": {
+    "finance": {
+      "title": "Finanzkonsole",
+      "overview": "Finanzübersicht",
+      "revenue": "Umsatz",
+      "commissions": "Provisionen",
+      "payouts": "Auszahlungen",
+      "pending_payouts": "Ausstehende Auszahlungen",
+      "approve": "Genehmigen",
+      "reject": "Ablehnen",
+      "total_revenue": "Gesamtumsatz",
+      "monthly_revenue": "Monatlicher Umsatz",
+      "platform_earnings": "Plattform-Einnahmen",
+      "franchise_earnings": "Franchise-Einnahmen",
+      "reconciliation": "Abstimmung",
+      "export": "Bericht Exportieren"
+    }
+  },
+  "errors": {
+    "insufficient_balance": "Unzureichendes Guthaben",
+    "minimum_payout": "Betrag unter der Mindestauszahlungsschwelle",
+    "bank_not_configured": "Bitte konfigurieren Sie zuerst Ihr Bankkonto",
+    "payment_failed": "Zahlung fehlgeschlagen",
+    "refund_failed": "Rückerstattung fehlgeschlagen",
+    "payout_failed": "Auszahlung fehlgeschlagen"
+  },
+  "success": {
+    "payment_completed": "Zahlung erfolgreich abgeschlossen",
+    "refund_processed": "Rückerstattung erfolgreich verarbeitet",
+    "payout_requested": "Auszahlung erfolgreich angefordert",
+    "bank_configured": "Bankkonto erfolgreich konfiguriert"
+  }
+}

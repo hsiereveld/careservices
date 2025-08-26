@@ -1,0 +1,512 @@
+{
+  "nav": {
+    "services": "Diensten",
+    "howItWorks": "Hoe Het Werkt",
+    "forProfessionals": "Voor Professionals",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "#1 Platform voor Immigranten in Spanje",
+    "title": {
+      "connecting": "Verbinden van",
+      "immigrants": "Immigranten",
+      "withProfessionals": "met Lokale Professionals"
+    },
+    "description": "Care & Service is jouw vertrouwde platform om kwaliteitsdiensten in jouw taal te vinden. Van zorg en welzijn tot technische diensten - wij verbinden jouw behoefte met de perfecte professional.",
+    "buttons": {
+      "findServices": "Vind Diensten",
+      "becomeProfessional": "Word Professional"
+    },
+    "features": {
+      "freeVerification": "Gratis Verificatie",
+      "support247": "24/7 Ondersteuning",
+      "securePayments": "Veilige Betalingen"
+    }
+  },
+  "services": {
+    "title": "Onze Diensten",
+    "description": "Vind de perfecte professional voor elke behoefte. Al onze dienstverleners zijn geverifieerd en spreken jouw taal.",
+    "categories": {
+      "healthcare": {
+        "title": "Zorg & Gezondheid",
+        "description": "Medische zorg, thuiszorg, fysiotherapie en andere gezondheidsservices"
+      },
+      "technical": {
+        "title": "Technische Diensten", 
+        "description": "Reparaties, installaties, onderhoud en technische ondersteuning"
+      },
+      "administrative": {
+        "title": "Administratie & Juridisch",
+        "description": "Belastingaangiften, juridisch advies, administratieve ondersteuning"
+      },
+      "childcare": {
+        "title": "Kinderopvang & Oppas",
+        "description": "Babysitting, kinderopvang, begeleiding van kinderen"
+      },
+      "transport": {
+        "title": "Transport",
+        "description": "Taxi's, verhuizingen, bezorgdiensten"
+      },
+      "sports": {
+        "title": "Sport & Recreatie", 
+        "description": "Personal trainers, sportlessen, recreatieve activiteiten"
+      },
+      "social": {
+        "title": "Sociale Activiteiten",
+        "description": "Begeleiding, evenementen, sociale ondersteuning"
+      },
+      "domestic": {
+        "title": "Huishoudelijke Diensten",
+        "description": "Schoonmaak, tuinonderhoud, huishoudelijke taken"
+      }
+    },
+    "featuredServices": {
+      "title": "Uitgelichte Diensten",
+      "description": "Ontdek de nieuwste diensten van geverifieerde professionals",
+      "viewAllCategories": "Bekijk alle categorieën",
+      "viewAllServices": "Bekijk Alle Diensten",
+      "professional": "Professional:",
+      "price": "Prijs:",
+      "duration": "Duur:",
+      "radius": "Bereik:",
+      "viewDetails": "Bekijk Details",
+      "verified": "Geverifieerd",
+      "findServicesFor": "Vind diensten voor"
+    }
+  },
+  "howItWorks": {
+    "title": "Hoe Het Werkt",
+    "description": "Drie eenvoudige stappen om verbinding te maken met de professional die je nodig hebt",
+    "steps": {
+      "search": {
+        "title": "1. Zoek je Dienst",
+        "description": "Verken onze categorieën of gebruik onze AI chat om precies te vinden wat je nodig hebt"
+      },
+      "connect": {
+        "title": "2. Verbind met Professionals",
+        "description": "Bekijk geverifieerde profielen, lees reviews en kies de professional die het best bij jouw behoeften past"
+      },
+      "book": {
+        "title": "3. Boek en Geniet",
+        "description": "Plan je afspraak, betaal veilig en ontvang de kwaliteitsdienst die je verdient"
+      }
+    }
+  },
+  "cta": {
+    "title": "Klaar om te Beginnen?",
+    "description": "Sluit je aan bij duizenden mensen die al vertrouwen op Care & Service voor hun dagelijkse behoeften",
+    "buttons": {
+      "exploreServices": "Verken Diensten",
+      "chatWithAI": "Chat met AI Assistent"
+    }
+  },
+  "trust": {
+    "title": "Vertrouwd Platform",
+    "description": "Duizenden gebruikers vertrouwen al op Care & Service",
+    "stats": {
+      "servicesCompleted": "Voltooide Diensten",
+      "professionalVerified": "Geverifieerde Professionals",
+      "averageRating": "Gemiddelde Beoordeling",
+      "responseTime": "Responstijd"
+    },
+    "badges": {
+      "identityVerification": "Identiteitsverificatie",
+      "securePayments": "Veilige Betalingen",
+      "support247": "24/7 Ondersteuning"
+    }
+  },
+  "chat": {
+    "loading": "Laden..."
+  },
+  "auth": {
+    "signIn": "Inloggen",
+    "signOut": "Uitloggen",
+    "welcome": "Welkom",
+    "loading": "Laden...",
+    "signUp": "Registreren",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "confirmPassword": "Bevestig wachtwoord",
+    "name": "Naam",
+    "emailPlaceholder": "je@email.com",
+    "passwordPlaceholder": "Minimaal 8 karakters",
+    "namePlaceholder": "Je volledige naam",
+    "createAccount": "Account aanmaken",
+    "haveAccount": "Heb je al een account?",
+    "noAccount": "Geen account?",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "resetPassword": "Wachtwoord resetten",
+    "backToSignIn": "Terug naar inloggen",
+    "orContinueWith": "Of ga verder met",
+    "rememberMe": "Onthouden",
+    "passwordTooShort": "Wachtwoord moet minimaal 8 karakters zijn",
+    "passwordsDontMatch": "Wachtwoorden komen niet overeen",
+    "invalidEmail": "Ongeldig e-mailadres",
+    "nameRequired": "Naam is verplicht",
+    "chooseMethod": "Kies je voorkeursmethod voor inloggen"
+  },
+  "theme": {
+    "toggle": "Thema wijzigen",
+    "light": "Licht",
+    "dark": "Donker",
+    "system": "Systeem"
+  },
+  "dashboard": {
+    "protected": "Beveiligde Pagina",
+    "signInRequired": "Je moet inloggen om het dashboard te openen",
+    "backHome": "Terug naar home",
+    "welcome": "Welkom",
+    "subtitle": "Hier is je Care & Service dashboard",
+    "stats": {
+      "activeServices": "Actieve Diensten",
+      "upcomingBookings": "Komende Boekingen",
+      "messages": "Berichten",
+      "rating": "Beoordeling",
+      "noServicesYet": "Nog geen diensten",
+      "noBookingsYet": "Nog geen boekingen",
+      "noMessagesYet": "Nog geen berichten",
+      "noRatingYet": "Nog geen beoordelingen"
+    },
+    "quickActions": {
+      "findServices": "Vind Diensten",
+      "findServicesDesc": "Zoek betrouwbare professionals in jouw buurt",
+      "browseServices": "Bekijk Diensten",
+      "becomePro": "Word Professional",
+      "becomeProDesc": "Begin met het aanbieden van jouw diensten",
+      "startApplication": "Start Aanmelding"
+    },
+    "recentActivity": {
+      "title": "Recente Activiteit",
+      "description": "Je laatste acties op het platform",
+      "noActivity": "Nog geen activiteit",
+      "getStarted": "Begin met het zoeken van diensten om je dashboard te vullen"
+    }
+  },
+  "footer": {
+    "description": "Verbinden van immigranten en expats met vertrouwde lokale professionals in Spanje voor alle soorten diensten.",
+    "services": {
+      "title": "Diensten",
+      "healthcare": "Zorg & Gezondheid",
+      "technical": "Technische Diensten",
+      "childcare": "Kinderopvang",
+      "transport": "Transport"
+    },
+    "company": {
+      "title": "Bedrijf",
+      "about": "Over Ons",
+      "careers": "Carrières",
+      "press": "Pers",
+      "contact": "Contact"
+    },
+    "support": {
+      "title": "Ondersteuning",
+      "help": "Help Center",
+      "safety": "Veiligheid",
+      "privacy": "Privacy",
+      "terms": "Voorwaarden"
+    },
+    "copyright": "© 2025 Care & Service. Alle rechten voorbehouden."
+  },
+  "dashboard": {
+    "protected": "Beveiligde Pagina",
+    "signInRequired": "Je moet inloggen om het dashboard te openen",
+    "backHome": "Terug naar home",
+    "welcome": "Welkom",
+    "subtitle": "Hier is je Care & Service dashboard",
+    "stats": {
+      "activeServices": "Actieve Diensten",
+      "upcomingBookings": "Komende Boekingen",
+      "messages": "Berichten",
+      "rating": "Beoordeling",
+      "noServicesYet": "Nog geen diensten",
+      "noBookingsYet": "Nog geen boekingen",
+      "noMessagesYet": "Nog geen berichten",
+      "noRatingYet": "Nog geen beoordelingen"
+    },
+    "quickActions": {
+      "findServices": "Vind Diensten",
+      "findServicesDesc": "Zoek betrouwbare professionals in jouw buurt",
+      "browseServices": "Bekijk Diensten",
+      "becomePro": "Word Professional",
+      "becomeProDesc": "Begin met het aanbieden van jouw diensten",
+      "startApplication": "Start Aanmelding"
+    },
+    "recentActivity": {
+      "title": "Recente Activiteit",
+      "description": "Je laatste acties op het platform",
+      "noActivity": "Nog geen activiteit",
+      "getStarted": "Begin met het zoeken van diensten om je dashboard te vullen"
+    },
+    "client": {
+      "welcome": "Welkom terug!",
+      "welcome_name": "Welkom terug, {{name}}!",
+      "subtitle": "Vind en boek vertrouwde professionals voor jouw zorgbehoeften.",
+      "stats": {
+        "active_bookings": "Actieve Boekingen",
+        "favorite_pros": "Favoriete Professionals",
+        "unread_messages": "Ongelezen Berichten",
+        "reviews_given": "Gegeven Beoordelingen",
+        "completed_total": "{{count}} in totaal voltooid",
+        "no_completed": "Nog geen voltooide boekingen",
+        "ready_to_book": "Klaar om opnieuw te boeken",
+        "book_services": "Boek services om favorieten toe te voegen",
+        "new_responses": "Nieuwe reacties beschikbaar",
+        "all_read": "Alle berichten gelezen",
+        "avg_rating": "Gemiddeld {{rating}} sterren",
+        "no_reviews": "Nog geen beoordelingen"
+      },
+      "recent_activity": "Recente Activiteit",
+      "activity_desc": "Je laatste boekingen en interacties",
+      "action_required": "Actie Vereist",
+      "no_activity": "Geen recente activiteit",
+      "book_service_prompt": "Boek een service om te beginnen",
+      "view_all_activity": "Alle Activiteit Bekijken",
+      "upcoming_appointments": "Komende Afspraken",
+      "upcoming_desc": "Je geplande services voor de komende 7 dagen",
+      "message": "Bericht",
+      "reschedule": "Herplannen",
+      "no_upcoming": "Geen komende afspraken",
+      "book_now": "Boek een service om te beginnen",
+      "browse_services": "Bekijk Services",
+      "view_all_bookings": "Alle Boekingen Bekijken"
+    }
+  },
+  "priceUnits": {
+    "perHour": "/uur",
+    "perDay": "/dag",
+    "perPiece": "/stuk",
+    "perService": "/dienst",
+    "perKm": "/km",
+    "perMeter": "/meter",
+    "perSquareMeter": "/m²",
+    "perHourFull": "Per uur",
+    "perDayFull": "Per dag",
+    "perPieceFull": "Per stuk",
+    "perServiceFull": "Per dienst",
+    "perKmFull": "Per kilometer",
+    "perMeterFull": "Per meter",
+    "perSquareMeterFull": "Per vierkante meter (m²)"
+  },
+  "vat": {
+    "vatRate": "BTW Tarief",
+    "standardRate": "Standaardtarief",
+    "reducedRate": "Verlaagd tarief",
+    "exempt": "Vrijgesteld",
+    "priceInclVat": "Prijs inclusief BTW",
+    "priceExclVat": "Prijs exclusief BTW",
+    "priceBreakdown": "Prijsopbouw",
+    "inclVat": "incl. BTW",
+    "exclVat": "excl. BTW",
+    "inclVatShort": "incl.",
+    "exclVatShort": "excl.",
+    "vat": "BTW"
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Vind de Perfecte Dienst",
+      "subtitle": "Ontdek professionele dienstverleners in jouw buurt"
+    },
+    "search": {
+      "placeholder": "Zoek naar diensten...",
+      "postcode": "Postcode",
+      "button": "Zoeken"
+    },
+    "filters": {
+      "allCategories": "Alle categorieën"
+    },
+    "sort": {
+      "relevance": "Relevantie",
+      "priceLowToHigh": "Prijs (laag naar hoog)",
+      "priceHighToLow": "Prijs (hoog naar laag)",
+      "bestRating": "Beste beoordeling",
+      "nearest": "Dichtsbij"
+    },
+    "results": {
+      "servicesFound": "{{count}} diensten gevonden",
+      "noServicesFound": "Geen diensten gevonden",
+      "tryDifferentSearch": "Probeer je zoekopdracht aan te passen of verwijder filters"
+    },
+    "loading": {
+      "searchingServices": "Diensten zoeken..."
+    },
+    "serviceCard": {
+      "serviceRadius": "{{radius}} km service gebied",
+      "reviews": "({{count}} reviews)",
+      "by": "Door: {{name}}",
+      "moreInfo": "Meer Info",
+      "bookNow": "Boek Nu",
+      "contact": "Contact"
+    }
+  },
+  "settings": {
+    "title": "Instellingen",
+    "description": "Beheer uw accountinstellingen, privacyvoorkeuren en meldingen",
+    "tabs": {
+      "general": "Algemeen",
+      "security": "Beveiliging", 
+      "privacy": "Privacy",
+      "notifications": "Meldingen"
+    },
+    "languageRegion": "Taal & Regio",
+    "language": "Taal",
+    "timezone": "Tijdzone",
+    "accountInformation": "Accountinformatie",
+    "accountStatus": "Accountstatus",
+    "emailVerification": "E-mailverificatie",
+    "active": "Actief",
+    "pending": "In behandeling",
+    "verified": "Geverifieerd",
+    "save": "Opslaan",
+    "saving": "Opslaan...",
+    "settingsSaved": "Instellingen succesvol opgeslagen!"
+  },
+  "dashboard": {
+    "client": {
+      "welcome": "Welkom terug!",
+      "welcome_name": "Welkom terug, {{name}}!",
+      "subtitle": "Vind en boek vertrouwde professionals voor uw zorgbehoeften.",
+      "stats": {
+        "active_bookings": "Actieve Boekingen",
+        "completed_total": "{{count}} afgerond totaal",
+        "no_completed": "Nog geen afgeronde boekingen",
+        "favorite_pros": "Favoriete Professionals",
+        "ready_to_book": "Klaar om opnieuw te boeken",
+        "book_services": "Boek diensten om favorieten toe te voegen",
+        "unread_messages": "Ongelezen Berichten",
+        "new_responses": "Nieuwe reacties beschikbaar",
+        "all_read": "Alle berichten gelezen",
+        "reviews_given": "Gegeven Reviews",
+        "avg_rating": "Gemiddeld {{rating}} sterren",
+        "no_reviews": "Nog geen reviews"
+      },
+      "quick_actions": {
+        "book_service": "Boek een Dienst",
+        "book_service_desc": "Vind en boek vertrouwde professionals bij u in de buurt",
+        "house_cleaning": "Huishouding",
+        "elderly_care": "Ouderenzorg",
+        "childcare": "Kinderopvang",
+        "pet_care": "Dierenverzorging",
+        "browse_all": "Bekijk Alle Diensten"
+      },
+      "activity": {
+        "recent_activity": "Recente Activiteit",
+        "activity_desc": "Uw laatste boekingen en interacties",
+        "just_now": "Zojuist",
+        "minutes_ago": "{{count}} minuten geleden",
+        "hours_ago": "{{count}} uur geleden",
+        "days_ago": "{{count}} dagen geleden",
+        "action_required": "Actie Vereist",
+        "no_activity": "Geen recente activiteit",
+        "book_prompt": "Boek een dienst om te beginnen",
+        "view_all": "Bekijk Alle Activiteit"
+      },
+      "appointments": {
+        "upcoming": "Komende Afspraken",
+        "upcoming_desc": "Uw geplande diensten voor de komende 7 dagen",
+        "message": "Bericht",
+        "reschedule": "Herplannen",
+        "no_upcoming": "Geen komende afspraken",
+        "book_now": "Boek nu een dienst",
+        "browse_services": "Bekijk Diensten",
+        "view_all": "Bekijk Alle Boekingen"
+      }
+    },
+    "professional": {
+      "welcome": "Welkom terug, {{name}}!",
+      "subtitle": "Beheer uw diensten en laat uw bedrijf groeien",
+      "commission": "Commissie Tarief",
+      "profileCompletion": "Profiel Volledigheid",
+      "totalServices": "Totaal Diensten",
+      "eligibleBadge": "Geschikt voor Actief badge",
+      "needMore": "{{count}} meer nodig voor Actief badge",
+      "activeBookings": "Actieve Boekingen",
+      "thisWeek": "Deze week",
+      "totalClients": "Totaal Klanten",
+      "growth": "+{{percent}}% deze maand",
+      "rating": "Gemiddelde Beoordeling",
+      "earnings": "Inkomsten Overzicht",
+      "thisMonth": "Deze Maand",
+      "pending": "Uitstaande Betalingen",
+      "viewDetails": "Bekijk Details",
+      "loyalty": "Loyaliteitsprogramma",
+      "points": "Loyaliteitspunten",
+      "nextReward": "Volgende Beloning",
+      "tier": "Zilver Lid",
+      "upcoming": "Komende Boekingen",
+      "viewAll": "Bekijk Alles",
+      "noBookings": "Geen komende boekingen",
+      "addService": "Nieuwe Dienst Toevoegen",
+      "setAvailability": "Beschikbaarheid Instellen",
+      "manageClients": "Klanten Beheren",
+      "loading": "Laden..."
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Beheerder Dashboard",
+      "subtitle": "Beheer het platform, gebruikers en systeemprestaties",
+      "stats": {
+        "totalUsers": "Totaal Gebruikers",
+        "totalUsersGrowth": "+20,1% ten opzichte van vorige maand",
+        "activeFranchises": "Actieve Franchises"
+      },
+      "recentActivity": {
+        "hoursAgo": "uur geleden"
+      }
+    }
+  },
+  "stats": {
+    "acrossRegions": "Verspreid over regio's",
+    "monthlyRevenue": "Maandelijkse Omzet",
+    "monthlyGrowth": "+12,5% ten opzichte van vorige maand",
+    "systemUptime": "Systeem Uptime",
+    "last30Days": "Laatste 30 dagen"
+  },
+  "systemHealth": {
+    "title": "Systeem Gezondheid",
+    "description": "Real-time systeemprestaties en monitoring",
+    "apiResponseTime": "API Reactietijd",
+    "databasePerformance": "Database Prestaties",
+    "optimal": "Optimaal",
+    "serverLoad": "Server Belasting",
+    "securityStatus": "Beveiligingsstatus",
+    "secure": "Veilig"
+  },
+  "alerts": {
+    "title": "Systeemwaarschuwingen",
+    "description": "Belangrijke meldingen en waarschuwingen",
+    "highMemoryUsage": "Hoog Geheugengebruik",
+    "highMemoryDescription": "Server gebruikt 87% van beschikbaar geheugen",
+    "pendingReviews": "Wachtende Reviews",
+    "pendingReviewsDescription": "12 professionele verificaties wachten op goedkeuring",
+    "viewAll": "Bekijk Alles"
+  },
+  "quickActions": {
+    "title": "Snelle Acties",
+    "description": "Snelkoppelingen naar veelgebruikte beheerfuncties",
+    "manageUsers": "Gebruikers Beheren",
+    "franchises": "Franchises",
+    "security": "Beveiliging",
+    "analytics": "Analytics",
+    "settings": "Instellingen",
+    "professionals": "Professionals",
+    "reports": "Rapporten",
+    "system": "Systeem"
+  },
+  "platformGrowth": {
+    "title": "Platform Groei",
+    "description": "Belangrijke groeistatistieken en trends",
+    "newUsers30Days": "Nieuwe Gebruikers (30 dagen)",
+    "activeProfessionals": "Actieve Professionals",
+    "bookingCompletionRate": "Boeking Voltooiingspercentage"
+  },
+  "recentActivity": {
+    "title": "Recente Activiteit",
+    "description": "Laatste belangrijke platformgebeurtenissen",
+    "franchiseApproved": "Nieuwe franchise goedgekeurd in Amsterdam",
+    "securityPolicyUpdated": "Beveiligingsbeleid bijgewerkt",
+    "verificationCompleted": "Bulk professional verificatie voltooid",
+    "backupCompleted": "Automatische systeembackup voltooid",
+    "dayAgo": "1 dag geleden"
+  }
+}

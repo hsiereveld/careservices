@@ -162,6 +162,12 @@ export const PUT = withAuth(
         languages,
         requirements,
         isActive,
+        // New fields for professional dashboard
+        templateId,
+        bufferTime,
+        maxDailyBookings,
+        advanceBookingDays,
+        instantBooking,
       } = body;
 
       // Validate category if provided
@@ -206,6 +212,13 @@ export const PUT = withAuth(
       if (languages) updateData.languages = Array.isArray(languages) ? languages : ["es"];
       if (requirements !== undefined) updateData.requirements = requirements?.trim() || null;
       if (typeof isActive === 'boolean') updateData.isActive = isActive;
+      
+      // New professional dashboard fields
+      if (templateId !== undefined) updateData.templateId = templateId || null;
+      if (bufferTime !== undefined) updateData.bufferTime = parseInt(bufferTime) || 0;
+      if (maxDailyBookings !== undefined) updateData.maxDailyBookings = maxDailyBookings ? parseInt(maxDailyBookings) : null;
+      if (advanceBookingDays !== undefined) updateData.advanceBookingDays = parseInt(advanceBookingDays) || 30;
+      if (typeof instantBooking === 'boolean') updateData.instantBooking = instantBooking;
 
       // Always update the updatedAt timestamp
       updateData.updatedAt = new Date();
@@ -257,6 +270,75 @@ export const PUT = withAuth(
       console.error("Error updating service:", error);
       return NextResponse.json(
         { error: "Failed to update service" },
+        { status: 500 }
+      );
+    }
+  },
+  ["pro", "franchise", "admin"]
+);
+
+// PATCH /api/services/[id] - Quick update (mainly for status toggle)
+export const PATCH = withAuth(
+  async (request: NextRequest, user, ...args: unknown[]) => {
+    const { params } = args[0] as { params: Promise<{ id: string }> };
+    try {
+      const { id: serviceId } = await params;
+
+      // Check if service exists and user has permission
+      const existingService = await db
+        .select({
+          id: service.id,
+          proId: service.proId,
+        })
+        .from(service)
+        .where(eq(service.id, serviceId))
+        .limit(1);
+
+      if (existingService.length === 0) {
+        return NextResponse.json(
+          { error: "Service not found" },
+          { status: 404 }
+        );
+      }
+
+      // Check permissions
+      const isOwner = existingService[0].proId === user.id;
+      const canManage = ["franchise", "admin"].includes(user.role);
+
+      if (!isOwner && !canManage) {
+        return NextResponse.json(
+          { error: "You can only update your own services" },
+          { status: 403 }
+        );
+      }
+
+      const body = await request.json();
+      const { isActive } = body;
+
+      // Quick status update
+      if (typeof isActive === 'boolean') {
+        await db
+          .update(service)
+          .set({ 
+            isActive,
+            updatedAt: new Date(),
+          })
+          .where(eq(service.id, serviceId));
+
+        return NextResponse.json({
+          message: `Service ${isActive ? 'activated' : 'deactivated'} successfully`,
+          isActive,
+        });
+      }
+
+      return NextResponse.json(
+        { error: "No valid fields to update" },
+        { status: 400 }
+      );
+    } catch (error) {
+      console.error("Error updating service status:", error);
+      return NextResponse.json(
+        { error: "Failed to update service status" },
         { status: 500 }
       );
     }

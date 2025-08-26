@@ -1,6 +1,8 @@
 'use client'
 
 import { RequireRole } from '@/contexts/auth-context'
+import { useTranslations } from '@/lib/i18n-context'
+import { useAdminDashboardStats } from '@/lib/hooks/use-api'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { 
@@ -19,8 +21,27 @@ import {
   Server
 } from 'lucide-react'
 import Link from 'next/link'
+import { format } from 'date-fns'
+
+interface Alert {
+  id: number
+  type: string
+  title: string
+  description: string
+  severity: 'high' | 'medium' | 'low'
+}
+
+interface AdminActivity {
+  id: number
+  action: string
+  timestamp: string
+  type: string
+}
 
 export default function AdminDashboard() {
+  const { t } = useTranslations()
+  const { data: stats, isLoading } = useAdminDashboardStats()
+
   return (
     <RequireRole roles={['admin']}>
       <div className="space-y-6">
@@ -42,9 +63,11 @@ export default function AdminDashboard() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">12,847</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : stats?.totalUsers?.toLocaleString() || '0'}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +247 this week
+                  +{stats?.newUsersThisWeek || 0} this week
                 </p>
               </CardContent>
             </Card>
@@ -55,9 +78,11 @@ export default function AdminDashboard() {
                 <Building className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">24</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : stats?.activeFranchises || 0}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  Across 15 regions
+                  Across multiple regions
                 </p>
               </CardContent>
             </Card>
@@ -68,9 +93,11 @@ export default function AdminDashboard() {
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$547K</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : `$${(stats?.monthlyRevenue || 0).toLocaleString()}`}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  +12% from last month
+                  {stats?.revenueChange > 0 ? '+' : ''}{stats?.revenueChange || 0}% from last month
                 </p>
               </CardContent>
             </Card>
@@ -81,7 +108,9 @@ export default function AdminDashboard() {
                 <Activity className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">99.9%</div>
+                <div className="text-2xl font-bold">
+                  {isLoading ? '...' : `${stats?.systemHealth?.uptime || 99.9}%`}
+                </div>
                 <p className="text-xs text-muted-foreground">
                   Last 30 days
                 </p>
@@ -107,7 +136,9 @@ export default function AdminDashboard() {
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm font-medium">API Response Time</span>
                   </div>
-                  <span className="text-sm text-gray-600">148ms</span>
+                  <span className="text-sm text-gray-600">
+                    {isLoading ? '...' : `${stats?.systemHealth?.apiResponseTime || 0}ms`}
+                  </span>
                 </div>
                 
                 <div className="flex items-center justify-between">
@@ -115,15 +146,23 @@ export default function AdminDashboard() {
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm font-medium">Database Performance</span>
                   </div>
-                  <span className="text-sm text-gray-600">Optimal</span>
+                  <span className="text-sm text-gray-600">
+                    {isLoading ? '...' : stats?.systemHealth?.databasePerformance || 'Optimal'}
+                  </span>
                 </div>
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    <div className={`w-2 h-2 rounded-full ${
+                      (stats?.systemHealth?.serverLoad || 0) > 80 ? 'bg-red-500' :
+                      (stats?.systemHealth?.serverLoad || 0) > 60 ? 'bg-yellow-500' :
+                      'bg-green-500'
+                    }`}></div>
                     <span className="text-sm font-medium">Server Load</span>
                   </div>
-                  <span className="text-sm text-gray-600">67%</span>
+                  <span className="text-sm text-gray-600">
+                    {isLoading ? '...' : `${stats?.systemHealth?.serverLoad || 0}%`}
+                  </span>
                 </div>
                 
                 <div className="flex items-center justify-between">
@@ -131,7 +170,9 @@ export default function AdminDashboard() {
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm font-medium">Security Status</span>
                   </div>
-                  <span className="text-sm text-gray-600">Secure</span>
+                  <span className="text-sm text-gray-600">
+                    {isLoading ? '...' : stats?.systemHealth?.securityStatus || 'Secure'}
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -147,29 +188,49 @@ export default function AdminDashboard() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3 p-3 bg-red-50 border border-red-200 rounded-lg">
-                    <AlertTriangle className="w-4 h-4 text-red-600 mt-0.5" />
-                    <div className="flex-1">
-                      <h4 className="font-medium text-red-800 text-sm">High Memory Usage</h4>
-                      <p className="text-xs text-red-700">Server cluster at 89% capacity</p>
+                {isLoading ? (
+                  <div className="text-center py-4 text-muted-foreground">
+                    Loading alerts...
+                  </div>
+                ) : stats?.criticalAlerts?.length > 0 ? (
+                  <div className="space-y-3">
+                    {stats.criticalAlerts.map((alert: Alert) => (
+                      <div 
+                        key={alert.id} 
+                        className={`flex items-start space-x-3 p-3 border rounded-lg ${
+                          alert.severity === 'high' ? 'bg-red-50 border-red-200' :
+                          'bg-yellow-50 border-yellow-200'
+                        }`}
+                      >
+                        <AlertTriangle className={`w-4 h-4 mt-0.5 ${
+                          alert.severity === 'high' ? 'text-red-600' : 'text-yellow-600'
+                        }`} />
+                        <div className="flex-1">
+                          <h4 className={`font-medium text-sm ${
+                            alert.severity === 'high' ? 'text-red-800' : 'text-yellow-800'
+                          }`}>
+                            {alert.title}
+                          </h4>
+                          <p className={`text-xs ${
+                            alert.severity === 'high' ? 'text-red-700' : 'text-yellow-700'
+                          }`}>
+                            {alert.description}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                    
+                    <div className="text-center py-4">
+                      <Button variant="outline" size="sm">
+                        View All Alerts
+                      </Button>
                     </div>
                   </div>
-                  
-                  <div className="flex items-start space-x-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <AlertTriangle className="w-4 h-4 text-yellow-600 mt-0.5" />
-                    <div className="flex-1">
-                      <h4 className="font-medium text-yellow-800 text-sm">Pending Reviews</h4>
-                      <p className="text-xs text-yellow-700">15 franchise applications awaiting review</p>
-                    </div>
+                ) : (
+                  <div className="text-center py-4 text-green-600">
+                    No critical alerts at this time
                   </div>
-                  
-                  <div className="text-center py-4">
-                    <Button variant="outline" size="sm">
-                      View All Alerts
-                    </Button>
-                  </div>
-                </div>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -256,26 +317,45 @@ export default function AdminDashboard() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">New Users (30 days)</span>
-                    <span className="text-sm text-gray-600">+1,247</span>
+                    <span className="text-sm text-gray-600">
+                      +{isLoading ? '...' : stats?.platformGrowth?.newUsers30Days?.toLocaleString() || '0'}
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: '78%' }}></div>
+                    <div 
+                      className="bg-blue-500 h-2 rounded-full" 
+                      style={{ 
+                        width: `${Math.min((stats?.platformGrowth?.newUsers30Days || 0) / 1000 * 100, 100)}%` 
+                      }}
+                    ></div>
                   </div>
                   
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">Active Professionals</span>
-                    <span className="text-sm text-gray-600">2,847</span>
+                    <span className="text-sm text-gray-600">
+                      {isLoading ? '...' : stats?.platformGrowth?.activeProfessionals?.toLocaleString() || '0'}
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-green-500 h-2 rounded-full" style={{ width: '85%' }}></div>
+                    <div 
+                      className="bg-green-500 h-2 rounded-full" 
+                      style={{ 
+                        width: `${Math.min((stats?.platformGrowth?.activeProfessionals || 0) / 5000 * 100, 100)}%` 
+                      }}
+                    ></div>
                   </div>
                   
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">Booking Completion Rate</span>
-                    <span className="text-sm text-gray-600">94.2%</span>
+                    <span className="text-sm text-gray-600">
+                      {isLoading ? '...' : `${stats?.platformGrowth?.bookingCompletionRate || 0}%`}
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-yellow-500 h-2 rounded-full" style={{ width: '94%' }}></div>
+                    <div 
+                      className="bg-yellow-500 h-2 rounded-full" 
+                      style={{ width: `${stats?.platformGrowth?.bookingCompletionRate || 0}%` }}
+                    ></div>
                   </div>
                 </div>
               </CardContent>
@@ -289,47 +369,31 @@ export default function AdminDashboard() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900">
-                        New franchise approved: Toronto East
-                      </p>
-                      <p className="text-xs text-gray-500">2 hours ago</p>
-                    </div>
+                {isLoading ? (
+                  <div className="text-center py-4 text-muted-foreground">
+                    Loading activity...
                   </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900">
-                        Security policy updated
-                      </p>
-                      <p className="text-xs text-gray-500">5 hours ago</p>
-                    </div>
+                ) : stats?.recentActivity?.length > 0 ? (
+                  <div className="space-y-4">
+                    {stats.recentActivity.map((activity: AdminActivity) => (
+                      <div key={activity.id} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-900">
+                            {activity.action}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {format(new Date(activity.timestamp), 'MMM d, h:mm a')}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900">
-                        Professional verification batch completed
-                      </p>
-                      <p className="text-xs text-gray-500">1 day ago</p>
-                    </div>
+                ) : (
+                  <div className="text-center py-4 text-muted-foreground">
+                    No recent activity
                   </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900">
-                        Database backup completed successfully
-                      </p>
-                      <p className="text-xs text-gray-500">1 day ago</p>
-                    </div>
-                  </div>
-                </div>
+                )}
               </CardContent>
             </Card>
           </div>
